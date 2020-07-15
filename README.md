@@ -1,6 +1,6 @@
 
 
-# TOM (Traditional Online Market)
+# TOM (T Open Market)
 
 ### 팀원 소개
   
