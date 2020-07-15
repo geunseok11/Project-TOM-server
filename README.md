@@ -1,6 +1,6 @@
 
 
-# TOM (T Open Market)
+# TOM (T-label Open Market)
 
 ### 팀원 소개
   
