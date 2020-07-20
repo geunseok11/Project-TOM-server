@@ -18,7 +18,7 @@ module.exports = {
       business_number = null;
       user_admission = 1;
     } else if (user_type === 2) {
-      user_admission = 2;
+      user_admission = 0;
     }
 
     users
