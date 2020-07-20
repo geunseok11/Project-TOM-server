@@ -16,14 +16,16 @@ const {
   goods,
   order_lists,
 } = require("../models");
+const userFixture = require("./fixtures/users.json");
+const { getMaxListeners } = require("../app");
 
 describe("User Contorller API", () => {
   beforeEach(async () => {
     // beforeEach 는 describe(suit)안에 it(테스트코드)마다 it()이 실행되기 전에 실행된다.
     await users.destroy({ where: {}, truncate: true });
-    await users.create({ email: "conflict@gmail.com" });
+    await users.create(userFixture[0]);
+    await users.create(userFixture[1]);
   });
-
   describe("POST /user/signup", () => {
     // 일반 회원가입 => user_type이 1인 경우
     it("일반 회원가입 시 메세지를 응답해야 합니다", (done) => {
@@ -44,7 +46,7 @@ describe("User Contorller API", () => {
             done(err);
             return;
           }
-          expect(res).to.have.status(200);
+          expect(res).to.have.status(201);
           expect(res.body.message).to.equal("회원가입 성공");
           done();
         });
@@ -70,17 +72,36 @@ describe("User Contorller API", () => {
             done(err);
             return;
           }
-          expect(res).to.have.status(200);
+          expect(res).to.have.status(201);
           expect(res.body.message).to.equal(
-            "관리자의 승인을 받은 후 가입이 완료됩니다."
+            "관리자의 승인을 받은 후 가입이 완료됩니다"
           );
+          done();
+        });
+    });
+    it("회원정보 미입력 시 메세지를 응답해야 합니다", (done) => {
+      chai
+        .request(app)
+        .post("/user/signup")
+        .send({
+          email: "test3@gmail.com",
+          user_type: 1,
+          user_addmission: 1,
+        })
+        .end((err, res) => {
+          if (err) {
+            done(err);
+            return;
+          }
+          expect(res).to.have.status(404);
+          expect(res.body.message).to.equal("회원 정보가 올바르지 않습니다.");
           done();
         });
     });
   });
 
   describe("POST /user/emailcheck", () => {
-    it("user mail 사용가능 시 메세지를 응답해야 합니다", (done) => {
+    it("이메일 유효성 검사 성공 시 메세지를 응답해야 합니다", (done) => {
       chai
         .request(app)
         .post("/user/emailcheck")
@@ -92,17 +113,17 @@ describe("User Contorller API", () => {
             done(err);
             return;
           }
-          expect(res).to.have.status(200);
+          expect(res).to.have.status(201);
           expect(res.body.message).to.equal("사용가능한 이메일 입니다.");
           done();
         });
     });
-    it("user mail 충돌 시 메세지를 응답해야 합니다", (done) => {
+    it("이메일 유효성 검사 실패 시 메세지를 응답해야 합니다", (done) => {
       chai
         .request(app)
         .post("/user/emailcheck")
         .send({
-          email: "conflict@gmail.com",
+          email: "cunsumer@gmail.com",
         })
         .end((err, res) => {
           if (err) {
@@ -111,6 +132,92 @@ describe("User Contorller API", () => {
           }
           expect(res).to.have.status(409);
           expect(res.body.message).to.equal("이미 사용중인 이메일 입니다.");
+          done();
+        });
+    });
+  });
+  describe("POST /user/login", () => {
+    it("로그인 성공 시 유저정보를 응답해야 합니다", (done) => {
+      chai
+        .request(app)
+        .post("/user/login")
+        .send({
+          email: "cunsumer@gmail.com",
+          password: "1234",
+        })
+        .end((err, res) => {
+          if (err) {
+            done(err);
+            return;
+          }
+          expect(res).to.have.status(201);
+          expect(res.body.userInfo).has.all.keys([
+            "username",
+            "email",
+            "phone",
+            "address",
+            "user_type",
+          ]);
+          done();
+        });
+    });
+
+    it("로그인 실패 시 메세지를 응답해야 합니다", (done) => {
+      chai
+        .request(app)
+        .post("/user/login")
+        .send({
+          email: "cunsumer@gmail.com",
+          password: "1234",
+        })
+        .end((err, res) => {
+          if (err) {
+            done(err);
+            return;
+          }
+          expect(res).to.have.status(404);
+          expect(res.body.message).to.equal(
+            "ID나 비밀번호가 일치하지 않습니다."
+          );
+          done();
+        });
+    });
+
+    it("판매자 미인증 시 메세지를 응답해야 합니다", (done) => {
+      chai
+        .request(app)
+        .post("/user/login")
+        .send({
+          email: "seller@gmail.com",
+          password: "1234",
+        })
+        .end((err, res) => {
+          if (err) {
+            done(err);
+            return;
+          }
+          expect(res).to.have.status(201);
+          expect(res.body.message).to.equal(
+            "아직 판매자 회원 승인을 받지 못했습니다."
+          );
+          done();
+        });
+    });
+  });
+
+  describe("POST /user/signout", () => {
+    it("로그아웃 시 메세지를 응답해야 합니다", (done) => {
+      chai
+        .request(app)
+        .post("/user/signout")
+        .set({ host: "localhost:8080" })
+        .end((err, res) => {
+          if (err) {
+            done(err);
+            return;
+          }
+          expect(res).to.have.status(201);
+          expect(res.body.message).to.equal("로그아웃이 되었습니다.");
           done();
         });
     });
