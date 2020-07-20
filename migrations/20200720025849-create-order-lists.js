@@ -1,51 +1,53 @@
-'use strict';
+"use strict";
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('order_lists', {
+    await queryInterface.createTable("order_lists", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       user_id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       goods_id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       goods_quantity: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       order_date: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       rec_name: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       rec_phone: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       rec_address: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       invoice_number: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       order_state: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal("NOW()"),
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal("NOW()"),
+      },
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('order_lists');
-  }
+    await queryInterface.dropTable("order_lists");
+  },
 };

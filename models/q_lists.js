@@ -20,8 +20,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: "Q_lists",
+      modelName: "q_lists",
     }
   );
-  return Q_lists;
+  return q_lists;
 };
