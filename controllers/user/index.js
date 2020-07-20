@@ -4,6 +4,6 @@ module.exports = {
   emailCheck: require("./emailcheck"),
   login: require("./login"),
   resign: require("./resign"),
-  signin: require("./signin"),
+  signup: require("./signup"),
   signout: require("./signout"),
 };
