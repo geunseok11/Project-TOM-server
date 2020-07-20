@@ -27,7 +27,7 @@ module.exports = {
         type: Sequelize.STRING,
       },
       business_number: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
       },
       user_type: {
         type: Sequelize.INTEGER,
