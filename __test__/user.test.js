@@ -17,7 +17,6 @@ const {
   order_lists,
 } = require("../models");
 const userFixture = require("./fixtures/users.json");
-const { getMaxListeners } = require("../app");
 
 describe("User Contorller API", () => {
   beforeEach(async () => {
