@@ -27,7 +27,9 @@ describe("User Contorller API", () => {
   });
   describe("POST /user/signup", () => {
     // 일반 회원가입 => user_type이 1인 경우
-    it("일반 회원가입 시 메세지를 응답해야 합니다", (done) => {
+
+    it("일반 회원가입 시 메세지를 응답해야 합니다", done => {
+
       chai
         .request(app)
         .post("/user/signup")
@@ -51,7 +53,8 @@ describe("User Contorller API", () => {
     });
 
     // 판매자 회원가입 => user_type이 2인 경우
-    it("판매자 회원가입 시 메세지를 응답해야 합니다", (done) => {
+
+    it("판매자 회원가입 시 메세지를 응답해야 합니다", done => {
       chai
         .request(app)
         .post("/user/signup")
@@ -76,7 +79,8 @@ describe("User Contorller API", () => {
           done();
         });
     });
-    it("회원정보 미입력 시 메세지를 응답해야 합니다", (done) => {
+
+    it("회원정보 미입력 시 메세지를 응답해야 합니다", done => {
       chai
         .request(app)
         .post("/user/signup")
@@ -97,7 +101,9 @@ describe("User Contorller API", () => {
   });
 
   describe("POST /user/emailcheck", () => {
-    it("이메일 유효성 검사 성공 시 메세지를 응답해야 합니다", (done) => {
+
+    it("이메일 유효성 검사 성공 시 메세지를 응답해야 합니다", done => {
+
       chai
         .request(app)
         .post("/user/emailcheck")
@@ -114,7 +120,8 @@ describe("User Contorller API", () => {
           done();
         });
     });
-    it("이메일 유효성 검사 실패 시 메세지를 응답해야 합니다", (done) => {
+
+    it("이메일 유효성 검사 실패 시 메세지를 응답해야 합니다", done => {
       chai
         .request(app)
         .post("/user/emailcheck")
@@ -133,7 +140,8 @@ describe("User Contorller API", () => {
     });
   });
   describe("POST /user/login", () => {
-    it("로그인 성공 시 유저정보를 응답해야 합니다", (done) => {
+
+    it("로그인 성공 시 유저정보를 응답해야 합니다", done => {
       chai
         .request(app)
         .post("/user/login")
@@ -158,7 +166,8 @@ describe("User Contorller API", () => {
         });
     });
 
-    it("로그인 실패 시 메세지를 응답해야 합니다", (done) => {
+
+    it("로그인 실패 시 메세지를 응답해야 합니다", done => {
       chai
         .request(app)
         .post("/user/login")
@@ -179,7 +188,7 @@ describe("User Contorller API", () => {
         });
     });
 
-    it("판매자 미인증 시 메세지를 응답해야 합니다", (done) => {
+    it("판매자 미인증 시 메세지를 응답해야 합니다", done => {
       chai
         .request(app)
         .post("/user/login")
@@ -202,7 +211,8 @@ describe("User Contorller API", () => {
   });
 
   describe("POST /user/signout", () => {
-    it("로그아웃 시 메세지를 응답해야 합니다", (done) => {
+
+    it("로그아웃 시 메세지를 응답해야 합니다", done => {
       chai
         .request(app)
         .post("/user/signout")
@@ -220,7 +230,7 @@ describe("User Contorller API", () => {
   });
 
   describe("POST /user/certification", () => {
-    it("회원인증 성공 시 메세지를 응답해야 합니다", (done) => {
+    it("회원인증 성공 시 메세지를 응답해야 합니다", done => {
       chai
         .request(app)
         .post("/user/certification")
@@ -238,7 +248,8 @@ describe("User Contorller API", () => {
           done();
         });
     });
-    it("회원인증 실패 시 메세지를 응답해야 합니다", (done) => {
+
+    it("회원인증 실패 시 메세지를 응답해야 합니다", done => {
       chai
         .request(app)
         .post("/user/certification")
@@ -349,5 +360,5 @@ describe("User Contorller API", () => {
         });
     });
   });
-  //===
+
 });
