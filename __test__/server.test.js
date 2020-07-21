@@ -261,5 +261,97 @@ describe("User Contorller API", () => {
         });
     });
   });
+
+  describe("POST /user/resign", () => {
+    it("탈퇴 성공 시 메세지를 응답해야 합니다", (done) => {
+      chai
+        .request(app)
+        .post("/user/resign")
+        .send({
+          email: "cunsumer@gmail.com",
+          password: "1234",
+        })
+        .end((err, res) => {
+          if (err) {
+            done(err);
+            return;
+          }
+
+          users.findOne({ email: "cunsumer@gmail.com" }).then((user) => {
+            expect(user).to.equal(undefined);
+            expect(res).to.have.status(201);
+            expect(res.body.message).to.equal(
+              "회원탈퇴가 정상적으로 완료되었습니다."
+            );
+            done();
+          });
+        });
+    });
+    it("탈퇴 실패 시 메세지를 응답해야 합니다", (done) => {
+      chai
+        .request(app)
+        .post("/user/resign")
+        .send({
+          email: "cunsumer@gmail.com",
+          password: "12345",
+        })
+        .end((err, res) => {
+          if (err) {
+            done(err);
+            return;
+          }
+          expect(res).to.have.status(404);
+          expect(res.body.message).to.equal("비밀번호가 일치하지 않습니다.");
+          done();
+        });
+    });
+  });
+
+  describe("POST /user/edituserinfo", () => {
+    it("회원정보 수정 성공 시 메세지를 응답해야 합니다", (done) => {
+      chai
+        .request(app)
+        .post("/user/edituserinfo")
+        .send({
+          username: "판매자A",
+          password: "1234A",
+          phone: "010-1234-1234",
+          address: "서울시 OO구 OO로 OOO, 상세주소 100",
+          trade_name: "판매장A",
+          business_number: "123-45-12345",
+        })
+        .end((err, res) => {
+          if (err) {
+            done(err);
+            return;
+          }
+          expect(res).to.have.status(201);
+          expect(res.body.message).to.equal("정상적으로 업데이트 되었습니다.");
+          done();
+        });
+    });
+    it("회원정보 수정 실패 시 메세지를 응답해야 합니다", (done) => {
+      chai
+        .request(app)
+        .post("/user/edituserinfo")
+        .send({
+          username: "판매자",
+          password: "1234",
+          phone: "010-1234-5678",
+          address: "서울시 OO구 OO로 OOO, 상세주소",
+          trade_name: "판매장",
+          business_number: "000-00-00000",
+        })
+        .end((err, res) => {
+          if (err) {
+            done(err);
+            return;
+          }
+          expect(res).to.have.status(404);
+          expect(res.body.message).to.equal("입력한 회원 정보가 동일합니다.");
+          done();
+        });
+    });
+  });
   //===
 });
