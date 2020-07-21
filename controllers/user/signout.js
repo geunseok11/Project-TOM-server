@@ -1,11 +1,11 @@
 module.exports = {
   post: (req, res) => {
-    if (res.session.userId) {
+    if (req.session.userId) {
       req.session.destroy(err => {
         if (err) {
           console.log(err);
         } else {
-          res.status(200).send({ message: "로그아웃이 되었습니다." });
+          res.status(201).send({ message: "로그아웃이 되었습니다." });
         }
       });
     } else {
