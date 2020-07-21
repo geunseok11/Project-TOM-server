@@ -38,7 +38,6 @@ describe("User Contorller API", () => {
           phone: "010-1234-5678",
           address: "서울시 OO구 OO로 OOO, 상세주소",
           user_type: 1,
-          user_addmission: 1,
         })
         .end((err, res) => {
           if (err) {
@@ -64,7 +63,6 @@ describe("User Contorller API", () => {
           address: "서울시 OO구 OO로 OOO, 상세주소",
           business_number: "000-00-00000",
           user_type: 2,
-          user_addmission: 0,
         })
         .end((err, res) => {
           if (err) {
@@ -85,7 +83,6 @@ describe("User Contorller API", () => {
         .send({
           email: "test3@gmail.com",
           user_type: 1,
-          user_addmission: 1,
         })
         .end((err, res) => {
           if (err) {
