@@ -168,7 +168,7 @@ describe("User Contorller API", () => {
         .post("/user/login")
         .send({
           email: "cunsumer@gmail.com",
-          password: "1234",
+          password: "12345",
         })
         .end((err, res) => {
           if (err) {
@@ -218,6 +218,45 @@ describe("User Contorller API", () => {
           }
           expect(res).to.have.status(201);
           expect(res.body.message).to.equal("로그아웃이 되었습니다.");
+          done();
+        });
+    });
+  });
+
+  describe("POST /user/certification", () => {
+    it("회원인증 성공 시 메세지를 응답해야 합니다", (done) => {
+      chai
+        .request(app)
+        .post("/user/certification")
+        .send({
+          email: "cunsumer@gmail.com",
+          password: "1234",
+        })
+        .end((err, res) => {
+          if (err) {
+            done(err);
+            return;
+          }
+          expect(res).to.have.status(201);
+          expect(res.body.message).to.equal("인증 성공");
+          done();
+        });
+    });
+    it("회원인증 실패 시 메세지를 응답해야 합니다", (done) => {
+      chai
+        .request(app)
+        .post("/user/certification")
+        .send({
+          email: "cunsumer@gmail.com",
+          password: "12345",
+        })
+        .end((err, res) => {
+          if (err) {
+            done(err);
+            return;
+          }
+          expect(res).to.have.status(404);
+          expect(res.body.message).to.equal("비밀번호가 일치하지 않습니다.");
           done();
         });
     });
