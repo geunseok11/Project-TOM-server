@@ -76,11 +76,16 @@ describe("Home Contorller API", () => {
             done(err);
             return;
           }
+
           expect(res).to.have.status(404);
-          expect(res.body.recommendation).to.be.an("undefined");
-          expect(res.body.best).to.be.an("undefined");
+          expect(res.body.recommendation[0]).to.be.an("undefined");
+          expect(res.body.best[0]).to.be.an("undefined");
           expect(res.body.message).to.equal("data is not found");
           done();
+          //======================================
+          after(() => {
+            goods.bulkCreate(goodsFixture);
+          });
         });
     });
   });
