@@ -16,9 +16,14 @@ const {
   goods,
   order_lists,
 } = require("../models");
-const userFixture = require("./fixtures/users.json");
+const goodsFixture = require("./fixtures/goods.json");
 
 describe("Home Contorller API", () => {
+  beforeEach(async () => {
+    // beforeEach 는 describe(suit)안에 it(테스트코드)마다 it()이 실행되기 전에 실행된다.
+    await goods.destroy({ where: {}, truncate: true });
+    await goods.bulkCreate(goodsFixture);
+  });
   describe("GET /home", () => {
     // 일반 회원가입 => user_type이 1인 경우
     it("홈 접속시 시 추천 정보를 응답해야 합니다", (done) => {
