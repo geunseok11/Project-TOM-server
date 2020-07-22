@@ -207,18 +207,45 @@ describe("User Contorller API", () => {
 
   describe("POST /user/signout", () => {
     it("로그아웃 시 메세지를 응답해야 합니다", (done) => {
-      chai
-        .request(app)
-        .post("/user/signout")
-        .set({ host: "localhost:8080" })
-        .end((err, res) => {
-          if (err) {
-            done(err);
-            return;
-          }
-          expect(res).to.have.status(201);
-          expect(res.body.message).to.equal("로그아웃이 되었습니다.");
-          done();
+      const agent = chai.request.agent(app);
+      agent
+        .post("/user/login")
+        .send({
+          email: "cunsumer@gmail.com",
+          password: "1234",
+        })
+        .then(function (res) {
+          agent
+            .post("/user/signout")
+            .then(function (res2) {
+              expect(res2).to.have.status(201);
+              expect(res2.body.message).to.equal("로그아웃이 되었습니다.");
+              done();
+            })
+            .catch((err) => {
+              done(err);
+            });
+        });
+    });
+    it("로그아웃 시 세션이 없으면 메세지를 응답해야 합니다", (done) => {
+      const agent = chai.request.agent(app);
+      agent
+        .post("/user/login")
+        .send({
+          email: "cunsumer@gmail.com",
+          password: "123456",
+        })
+        .then(function (res) {
+          agent
+            .post("/user/signout")
+            .then(function (res2) {
+              expect(res2).to.have.status(404);
+              expect(res2.body.message).to.equal("세션이 존재하지 않습니다.");
+              done();
+            })
+            .catch((err) => {
+              done(err);
+            });
         });
     });
   });
