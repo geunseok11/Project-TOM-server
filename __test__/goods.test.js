@@ -14,9 +14,10 @@ const {
   goods,
   order_lists,
 } = require("../models");
-const goodsFixtures = require("./fixtures/goods.json");
-const review = require("../controllers/goods/review");
-const { agent } = require("supertest");
+const goodsFixture = require("./fixtures/goods.json");
+const q_listsFixture = require("./fixtures/q_lists.json");
+const reviewFixture = require("./fixtures/review.json");
+const replyFixture = require("./fixtures/reply.json");
 
 describe("Goods Test Case", () => {
   beforeEach(async () => {
@@ -65,7 +66,7 @@ describe("Goods Test Case", () => {
         });
     });
   });
-  describe("GET/goods/Info", () => {
+  describe("GET/goods/info", () => {
     it("특정 제품의 상세정보를 응답해야 합니다.", (done) => {
       chai
         .request(app)
@@ -107,7 +108,9 @@ describe("Goods Test Case", () => {
     });
   });
   describe("GET/goods/info/qa_lists", () => {
-    it("해당 제품과 관련된 질문의 목록을 응답해야 합니다.", (done) => {
+    it("해당 제품과 관련된 질문의 목록을 응답해야 합니다.", async (done) => {
+      await q_lists.create(q_listsFixture[0]);
+      await q_lists.create(q_listsFixture[1]);
       chai
         .request(app)
         .get("/goods/info/qa_lists")
@@ -130,7 +133,7 @@ describe("Goods Test Case", () => {
           done();
         });
     });
-    it("해당 제품과 관련된 질문이 없을 경우 없다는 응답을 해야합니다.", (done) => {
+    it("해당 제품과 관련된 질문이 없을 경우 없다는 응답을 해야합니다.", async (done) => {
       chai
         .request(app)
         .get("/goods/info/qa_lists")
@@ -145,20 +148,19 @@ describe("Goods Test Case", () => {
 
           done();
         });
+      await q_lists.destroy({ where: {}, truncate: true });
     });
   });
-  describe("POST/goods/qa_lists", () => {
+  describe("POST/goods/info/qa_lists", () => {
     it("해당 제품과 관련된 질문이 요청으로 오면 데이터베이스에 저장해야 합니다.", (done) => {
       const agent = chai.request.agent(app);
       agent
-        .request(app)
         .post("/user/login")
-        .send({ email: "coco@naver.com", password: "1234" })
+        .send({ email: "cunsumer@gmail.com", password: "1234" })
         .then(() => {
           agent
-            .request(app)
             .post("/goods/info/qa_lists")
-            .send({ title: "hello", contents: "it's awesome", goods_id: 1 })
+            .send({ title: "hello", contents: "it's awesome", goods_id: 2 })
             .end((err, res) => {
               if (err) {
                 done(err);
@@ -169,7 +171,7 @@ describe("Goods Test Case", () => {
                   where: {
                     title: "hello",
                     contents: "it's awesome",
-                    goods_id: 1,
+                    goods_id: 2,
                   },
                 })
                 .then((data) => {
@@ -187,12 +189,10 @@ describe("Goods Test Case", () => {
     it("질문에 text가 없을 경우 에러메세지를 응답해야합니다.", (done) => {
       const agent = chai.request.agent(app);
       agent
-        .request(app)
         .post("/user/login")
-        .send({ email: "coco@naver.com", password: "1234" })
+        .send({ email: "cunsumer@gmail.com", password: "1234" })
         .then(() => {
           agent
-            .request(app)
             .post("/goods/info/qa_lists")
             .send({ title: "hello", goods_id: 1 })
             .end((err, res) => {
@@ -207,16 +207,14 @@ describe("Goods Test Case", () => {
         });
     });
   });
-  describe("POST/goods/reply", () => {
+  describe("POST/goods/info/reply", () => {
     it("질문에 대한 리플이 요청으로 오면 데이터베이스에 저장해야 합니다.", (done) => {
       const agent = chai.request.agent(app);
       agent
-        .request(app)
         .post("/user/login")
-        .send({ email: "coco@naver.com", password: "1234" })
+        .send({ email: "cunsumer@gmail.com", password: "1234" })
         .then(() => {
           agent
-            .request(app)
             .post("/goods/info/reply")
             .send({ text: "yes!", qa_list_id: 1 })
             .end((err, res) => {
@@ -244,12 +242,10 @@ describe("Goods Test Case", () => {
     it("질문에 text가 없을 경우 에러메세지를 응답해야합니다.", (done) => {
       const agent = chai.request.agent(app);
       agent
-        .request(app)
         .post("/user/login")
-        .send({ email: "coco@naver.com", password: "1234" })
+        .send({ email: "cunsumer@gmail.com", password: "1234" })
         .then(() => {
           agent
-            .request(app)
             .post("/goods/info/reply")
             .send({ qa_list_id: 1 })
             .end((err, res) => {
@@ -265,7 +261,9 @@ describe("Goods Test Case", () => {
     });
   });
   describe("GET/goods/info/review", () => {
-    it("해당 제품과 관련된 리뷰를 응답해야 합니다.", (done) => {
+    it("해당 제품과 관련된 리뷰를 응답해야 합니다.", async (done) => {
+      await reviews.create(reviewFixture[0]);
+      await reviews.create(reviewFixture[1]);
       chai
         .request(app)
         .get("/goods/info/review")
@@ -285,8 +283,10 @@ describe("Goods Test Case", () => {
               "review_img",
             ]);
           });
+
           done();
         });
+      await reviews.destroy({ where: {}, truncate: true });
     });
     it("해당 제품과 관련된 리뷰가 없을 경우 없다는 응답을 해야합니다.", (done) => {
       chai
@@ -309,17 +309,14 @@ describe("Goods Test Case", () => {
     it("리뷰가 요청으로 오면 데이터베이스에 저장해야 합니다.", (done) => {
       const agent = chai.request.agent(app);
       agent
-        .request(app)
         .post("/user/login")
-        .send({ email: "coco@naver.com", password: "1234" })
+        .send({ email: "cunsumer@gmail.com", password: "1234" })
         .then(() => {
           agent
-            .request(app)
             .post("/goods/info/review")
             .send({
-              review_img: "file",
+              goods_id: 1,
               title: "hello",
-              username: "coco",
               contents: "It is good bro!",
               star: 4,
               review_img: "file",
@@ -332,9 +329,8 @@ describe("Goods Test Case", () => {
               reviews
                 .findOne({
                   where: {
-                    review_img: "file",
+                    goods_id: 1,
                     title: "hello",
-                    username: "coco",
                     contents: "It is good bro!",
                     star: 4,
                     review_img: "file",
@@ -355,17 +351,14 @@ describe("Goods Test Case", () => {
     it("리뷰에 text가 없을 경우 에러메세지를 응답해야합니다.", (done) => {
       const agent = chai.request.agent(app);
       agent
-        .request(app)
         .post("/user/login")
-        .send({ email: "coco@naver.com", password: "1234" })
+        .send({ email: "cunsumer@gmail.com", password: "1234" })
         .then(() => {
           agent
-            .request(app)
             .post("/goods/info/review")
             .send({
-              review_img: "file",
+              goods_id: 1,
               title: "hello",
-              username: "coco",
               star: 4,
               review_img: "file",
             })
@@ -385,13 +378,11 @@ describe("Goods Test Case", () => {
     it("판매자가 상품을 저장하면 데이터베이스에 저장해야 합니다.", (done) => {
       const agent = chai.request.agent(app);
       agent
-        .request(app)
         .post("/user/login")
-        .send({ email: "coco@naver.com", password: "1234" })
+        .send({ email: "cunsumer@gmail.com", password: "1234" })
         .then(() => {
           const agent = chai.request.agent(app);
           agent
-            .request(app)
             .post("/goods/registration")
             .send({
               goods_name: "freesia",
@@ -430,12 +421,10 @@ describe("Goods Test Case", () => {
     it("상품 등록에 실패했을 경우 에러메세지를 응답해야합니다.", (done) => {
       const agent = chai.request.agent(app);
       agent
-        .request(app)
         .post("/user/login")
-        .send({ email: "coco@naver.com", password: "1234" })
+        .send({ email: "cunsumer@gmail.com", password: "1234" })
         .then(() => {
           agent
-            .request(app)
             .post("/goods/info/review")
             .send({
               goods_name: "freesia",
