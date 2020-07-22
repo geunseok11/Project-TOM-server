@@ -63,11 +63,14 @@ describe("Home Contorller API", () => {
             "img",
             "price",
           ]);
+          //======================================
+          after(() => {
+            goods.destroy({ where: {}, truncate: true });
+          });
           done();
         });
     });
-    it("홈 접속시 시 데이터가 없으면 메세지를 응답해야 합니다", async (done) => {
-      await goods.destroy({ where: {}, truncate: true });
+    it("홈 접속시 시 데이터가 없으면 메세지를 응답해야 합니다", (done) => {
       chai
         .request(app)
         .get("/home")
@@ -81,11 +84,11 @@ describe("Home Contorller API", () => {
           expect(res.body.recommendation[0]).to.be.an("undefined");
           expect(res.body.best[0]).to.be.an("undefined");
           expect(res.body.message).to.equal("data is not found");
-          done();
           //======================================
           after(() => {
             goods.bulkCreate(goodsFixture);
           });
+          done();
         });
     });
   });
