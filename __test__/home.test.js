@@ -67,6 +67,7 @@ describe("Home Contorller API", () => {
         });
     });
     it("홈 접속시 시 데이터가 없으면 메세지를 응답해야 합니다", (done) => {
+      await goods.destroy({ where: {}, truncate: true });
       chai
         .request(app)
         .get("/home")
