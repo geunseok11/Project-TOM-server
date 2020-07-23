@@ -1,20 +1,19 @@
+const crypto = require("crypto");
 const { users } = require("../../models");
-const session = require("express-session");
 module.exports = {
   post: (req, res) => {
-    let a = {
-      username: "판매자",
-      password: "1234",
-      phone: "010-1234-5678",
-      address: "서울시 OO구 OO로 OOO, 상세주소",
-      trade_name: "판매장",
-      business_number: "000-00-00000",
-    };
-    let session = req.sessoin.userId;
+    if (!req.session.userId) {
+      res.status(404).send({
+        message: "세션이 존재하지 않습니다.",
+      });
+    }
+    let session = req.session.userId;
+    let userInput = req.body;
+
     users
       .findOne({
         where: { id: session },
-        attribues: [
+        attributes: [
           "username",
           "password",
           "phone",
@@ -23,9 +22,43 @@ module.exports = {
           "business_number",
         ],
       })
-      .then((userData) => {
-        console.log(userData);
-        res.send();
+      .then((userInfo) => {
+        let isUpdate = Object.keys(userInfo.dataValues).reduce((total, key) => {
+          if (key === "password") {
+            userInput[key] = crypto
+              .createHmac("sha256", "tomtom")
+              .update(userInput[key])
+              .digest("hex");
+          }
+          if (userInfo[key] === userInput[key]) {
+            return total;
+          } else {
+            return total + 1;
+          }
+        }, 0);
+        if (isUpdate) {
+          users
+            .update(userInput, {
+              where: {
+                id: session,
+              },
+            })
+            .then((result) => {
+              if (result[0] >= 1) {
+                res.status(201).send({
+                  message: "정상적으로 업데이트 되었습니다.",
+                });
+              } else {
+                res.status(404).send({
+                  message: "정상적으로 업데이트 되지 않았습니다.",
+                });
+              }
+            });
+        } else {
+          res.status(404).send({
+            message: "입력한 회원 정보가 동일합니다.",
+          });
+        }
       });
   },
 };
