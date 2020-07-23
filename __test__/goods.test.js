@@ -282,9 +282,8 @@ describe("Goods Test Case", () => {
               "star",
               "review_img",
             ]);
+            done();
           });
-
-          done();
         });
       await reviews.destroy({ where: {}, truncate: true });
     });
@@ -342,9 +341,9 @@ describe("Goods Test Case", () => {
                     expect(res.body.message).to.equal(
                       "성공적으로 글이 작성 되었습니다."
                     );
+                    done();
                   }
                 });
-              done();
             });
         });
     });
@@ -412,9 +411,9 @@ describe("Goods Test Case", () => {
                     expect(res.body.message).to.equal(
                       "정상적으로 상품이 등록 되었습니다."
                     );
+                    done();
                   }
                 });
-              done();
             });
         });
     });
