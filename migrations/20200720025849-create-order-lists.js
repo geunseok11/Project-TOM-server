@@ -18,7 +18,8 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       order_date: {
-        type: Sequelize.STRING,
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal("NOW()"),
       },
       rec_name: {
         type: Sequelize.STRING,

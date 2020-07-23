@@ -7,23 +7,22 @@ module.exports = {
     try {
       let queryLength = Object.keys(req.query).length;
       if (queryLength === 0) {
-        goods.findAll().then((data) => {
-          if (data.length !== 0) {
-            let arr = [];
-            data.forEach((val) => {
-              let obj = {
-                goods_id: val.id,
-                goods_name: val.goods_name,
-                goods_img: val.goods_img,
-                goods_price: val.goods_price,
-              };
-              arr.push(obj);
-            });
-            res.status(200).send(arr);
-          } else {
-            res.status(404).send({ message: "검색 결과가 없습니다." });
-          }
-        });
+        goods
+          .findAll({
+            attributes: [
+              ["id", "goods_id"],
+              "goods_name",
+              "goods_img",
+              "goods_price",
+            ],
+          })
+          .then((data) => {
+            if (data.length !== 0) {
+              res.status(200).send(data);
+            } else {
+              res.status(404).send({ message: "검색 결과가 없습니다." });
+            }
+          });
       } else {
         let queryData = url.parse(req.url, true).query;
 
@@ -38,20 +37,16 @@ module.exports = {
         goods
           .findAll({
             where: { goods_price: { [Op.between]: [option[0], option[1]] } },
+            attributes: [
+              ["id", "goods_id"],
+              "goods_name",
+              "goods_img",
+              "goods_price",
+            ],
           })
           .then((data) => {
             if (data.length !== 0) {
-              let arr = [];
-              data.forEach((val) => {
-                let obj = {
-                  goods_id: val.id,
-                  goods_name: val.goods_name,
-                  goods_img: val.goods_img,
-                  goods_price: val.goods_price,
-                };
-                arr.push(obj);
-              });
-              res.status(200).send(arr);
+              res.status(200).send(data);
             } else {
               res.status(404).send({ message: "검색 결과가 없습니다." });
             }
