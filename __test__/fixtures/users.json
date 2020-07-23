@@ -18,5 +18,16 @@
         "business_number": "000-00-00000",
         "user_type": 2,
         "user_admission": 0
+      },
+      {
+        "username": "승인된 판매자",
+        "email": "seller222@gmail.com",
+        "password": "1234",
+        "phone": "010-1234-5678",
+        "address": "서울시 OO구 OO로 OOO, 상세주소",
+        "trade_name": "판매장",
+        "business_number": "000-00-00000",
+        "user_type": 2,
+        "user_admission": 1
       }
 ]
