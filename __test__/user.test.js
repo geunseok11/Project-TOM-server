@@ -24,6 +24,7 @@ describe("User Contorller API", () => {
     await users.destroy({ where: {}, truncate: true });
     await users.create(userFixture[0]);
     await users.create(userFixture[1]);
+    await users.create(userFixture[2]);
   });
   describe("POST /user/signup", () => {
     // 일반 회원가입 => user_type이 1인 경우
@@ -343,25 +344,21 @@ describe("User Contorller API", () => {
       agent
         .post("/user/login")
         .send({
-          email: "seller@gmail.com",
+          email: "seller222@gmail.com",
           password: "1234",
         })
         .then((res) => {
           agent
             .post("/user/edituserinfo")
             .send({
-              username: "판매자A",
+              username: "승인된 판매자A",
               password: "1234A",
               phone: "010-1234-1234",
               address: "서울시 OO구 OO로 OOO, 상세주소 100",
               trade_name: "판매장A",
               business_number: "123-45-12345",
             })
-            .end((err, res2) => {
-              if (err) {
-                done(err);
-                return;
-              }
+            .then((res2) => {
               expect(res2).to.have.status(201);
               expect(res2.body.message).to.equal(
                 "정상적으로 업데이트 되었습니다."
@@ -375,25 +372,21 @@ describe("User Contorller API", () => {
       agent
         .post("/user/login")
         .send({
-          email: "seller@gmail.com",
+          email: "seller222@gmail.com",
           password: "1234",
         })
         .then((res) => {
           agent
             .post("/user/edituserinfo")
             .send({
-              username: "판매자",
+              username: "승인된 판매자",
               password: "1234",
               phone: "010-1234-5678",
               address: "서울시 OO구 OO로 OOO, 상세주소",
               trade_name: "판매장",
               business_number: "000-00-00000",
             })
-            .end((err, res2) => {
-              if (err) {
-                done(err);
-                return;
-              }
+            .then((res2) => {
               expect(res2).to.have.status(404);
               expect(res2.body.message).to.equal(
                 "입력한 회원 정보가 동일합니다."
