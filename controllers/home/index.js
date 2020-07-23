@@ -36,7 +36,7 @@ module.exports = {
           };
         });
       });
-    if (recommendationData && bestData) {
+    if (recommendationData.length && bestData.length) {
       res.status(201).send({
         recommendation: recommendationData,
         best: bestData,
