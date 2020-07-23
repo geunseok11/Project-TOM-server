@@ -27,11 +27,32 @@ describe("Goods Test Case", () => {
     await goods.create(goodsFixture[1]);
   });
 
-  describe("GET/goods/lists", () => {
+  describe("GET/goods/list", () => {
+    it("검색 요청 시 조건이 없으면 모든 제품의 목록을 응답해야 합니다.", (done) => {
+      chai
+        .request(app)
+        .get("/goods/list")
+        .end((err, res) => {
+          if (err) {
+            done(err);
+            return;
+          }
+          expect(res).to.have.status(200);
+          res.body.forEach((data_val, index) => {
+            expect(data_val).has.all.keys([
+              "goods_id",
+              "goods_name",
+              "goods_img",
+              "goods_price",
+            ]);
+          });
+          done();
+        });
+    });
     it("검색 요청 시 조건에 맞는 제품의 목록을 응답해야 합니다.", (done) => {
       chai
         .request(app)
-        .get("/goods/lists")
+        .get("/goods/list")
         .query({ min: 1000, max: 50000 })
         .end((err, res) => {
           if (err) {
@@ -53,7 +74,7 @@ describe("Goods Test Case", () => {
     it("검색 요청 시 조건에 맞는 제품이 존재하지 않을 경우 없다는 메세지를 응답해야 합니다.", (done) => {
       chai
         .request(app)
-        .get("/goods/lists")
+        .get("/goods/list")
         .query({ min: 50000 })
         .end((err, res) => {
           if (err) {
