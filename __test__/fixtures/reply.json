@@ -6,6 +6,11 @@
   },
   {
     "user_id": 1,
+    "text": "감사합니다",
+    "q_lists_id": 1
+  },
+  {
+    "user_id": 1,
     "text": "하루걸려요",
     "q_lists_id": 2
   },
