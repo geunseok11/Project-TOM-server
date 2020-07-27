@@ -3,9 +3,6 @@ const e = require("express");
 
 module.exports = {
   get: (req, res) => {
-    //세션이 있는지 확인
-    //세션 없으면 거부
-    //세션 있으면 order_lists에서 필요한 정보 만들기
     if (req.session.userId) {
       order_lists
         .findAll({

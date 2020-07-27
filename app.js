@@ -12,7 +12,7 @@ const port = 4000;
 app.use(bodyParser.json());
 app.use(
   cors({
-    origin: ["http://localhost:4000"],
+    origin: "*",
     methods: ["GET", "POST"],
     credentials: true,
   })
