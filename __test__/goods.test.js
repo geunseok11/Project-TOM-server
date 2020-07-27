@@ -14,17 +14,12 @@ const {
   goods,
   order_lists,
 } = require("../models");
-const goodsFixture = require("./fixtures/goods.json");
-const q_listsFixture = require("./fixtures/q_lists.json");
-const reviewFixture = require("./fixtures/review.json");
-const replyFixture = require("./fixtures/reply.json");
+const { refreshData } = require("./fixtures/index");
 
 describe("Goods Test Case", () => {
   beforeEach(async () => {
-    // Setup/TearDown : Check Fixtures folder
-    await goods.destroy({ where: {}, truncate: true });
-    await goods.create(goodsFixture[0]);
-    await goods.create(goodsFixture[1]);
+    await refreshData();
+    // await truncateData(goods, goodsFixture);
   });
 
   describe("GET/goods/list", () => {
@@ -115,7 +110,7 @@ describe("Goods Test Case", () => {
       chai
         .request(app)
         .get("/goods/info")
-        .query({ goods_id: 5 })
+        .query({ goods_id: 11 })
         .end((err, res) => {
           if (err) {
             done(err);
@@ -130,8 +125,6 @@ describe("Goods Test Case", () => {
   });
   describe("GET/goods/info/qa_lists", () => {
     it("해당 제품과 관련된 질문의 목록을 응답해야 합니다.", async (done) => {
-      await q_lists.create(q_listsFixture[0]);
-      await q_lists.create(q_listsFixture[1]);
       chai
         .request(app)
         .get("/goods/info/qa_lists")
@@ -169,7 +162,6 @@ describe("Goods Test Case", () => {
 
           done();
         });
-      await q_lists.destroy({ where: {}, truncate: true });
     });
   });
   describe("POST/goods/info/qa_lists", () => {
@@ -283,8 +275,6 @@ describe("Goods Test Case", () => {
   });
   describe("GET/goods/info/review", () => {
     it("해당 제품과 관련된 리뷰를 응답해야 합니다.", async (done) => {
-      await reviews.create(reviewFixture[0]);
-      await reviews.create(reviewFixture[1]);
       chai
         .request(app)
         .get("/goods/info/review")
@@ -306,7 +296,6 @@ describe("Goods Test Case", () => {
             done();
           });
         });
-      await reviews.destroy({ where: {}, truncate: true });
     });
     it("해당 제품과 관련된 리뷰가 없을 경우 없다는 응답을 해야합니다.", (done) => {
       chai
@@ -401,7 +390,6 @@ describe("Goods Test Case", () => {
         .post("/user/login")
         .send({ email: "cunsumer@gmail.com", password: "1234" })
         .then(() => {
-          const agent = chai.request.agent(app);
           agent
             .post("/goods/registration")
             .send({
@@ -428,7 +416,7 @@ describe("Goods Test Case", () => {
                 })
                 .then((data) => {
                   if (data) {
-                    expect(res).to.have.status(200);
+                    expect(res).to.have.status(201);
                     expect(res.body.message).to.equal(
                       "정상적으로 상품이 등록 되었습니다."
                     );
@@ -445,11 +433,11 @@ describe("Goods Test Case", () => {
         .send({ email: "cunsumer@gmail.com", password: "1234" })
         .then(() => {
           agent
-            .post("/goods/info/review")
+            .post("/goods/registration")
             .send({
               goods_name: "freesia",
               goods_price: 13000,
-              stock: 20,
+              stock: [23, 23],
               info_img: "file",
             })
             .end((err, res) => {

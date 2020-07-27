@@ -17,14 +17,12 @@ const {
   order_lists,
 } = require("../models");
 const userFixture = require("./fixtures/users.json");
+const { refreshData } = require("./fixtures/index");
 
 describe("User Contorller API", () => {
   beforeEach(async () => {
-    // beforeEach 는 describe(suit)안에 it(테스트코드)마다 it()이 실행되기 전에 실행된다.
-    await users.destroy({ where: {}, truncate: true });
-    await users.create(userFixture[0]);
-    await users.create(userFixture[1]);
-    await users.create(userFixture[2]);
+    // Setup/TearDown : Check Fixtures folder
+    await refreshData();
   });
   describe("POST /user/signup", () => {
     // 일반 회원가입 => user_type이 1인 경우

@@ -8,7 +8,7 @@ module.exports = {
       if (!userData) {
         res.status(404).send({ message: "비밀번호가 일치하지 않습니다." });
       } else {
-        let deleteData = await users.destroy({ where: { id: userData.id } });
+        await users.destroy({ where: { id: userData.id } });
         res
           .status(201)
           .send({ message: "회원탈퇴가 정상적으로 완료되었습니다." });

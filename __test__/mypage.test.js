@@ -15,12 +15,10 @@ const {
   order_lists,
 } = require("../models");
 const goodFixtures = require("./fixtures/goods.json");
+const { refreshData } = require("./fixtures/index");
 describe("Mypage Test Case", () => {
   beforeEach(async () => {
-    // Setup/TearDown : Check Fixtures folder
-    await goods.destroy({ where: {}, truncate: true });
-    await goods.create(goodFixtures[7]);
-    await goods.create(goodFixtures[8]);
+    await refreshData();
   });
 
   describe("GET/mypage/purchase", () => {
@@ -132,8 +130,8 @@ describe("Mypage Test Case", () => {
                 "goods_price",
                 "stock",
               ]);
-              done();
             });
+            done();
           });
         });
     });
@@ -141,7 +139,7 @@ describe("Mypage Test Case", () => {
       const agent = chai.request.agent(app);
       agent
         .post("/user/login")
-        .send({ email: "seller222@gmail.com", password: "1234" })
+        .send({ email: "seller333@gmail.com", password: "1234" })
         .then(() => {
           agent.get("/mypage/onsale").end((err, res) => {
             expect(res).to.have.status(404);

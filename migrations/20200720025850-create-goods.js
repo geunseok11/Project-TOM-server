@@ -1,40 +1,33 @@
 "use strict";
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable("order_lists", {
+    await queryInterface.createTable("goods", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
+        onUpdate: "cascade",
+        onDelete: "set null",
       },
       user_id: {
         type: Sequelize.INTEGER,
+        references: { name: "users", key: "id" },
       },
-      goods_id: {
-        type: Sequelize.INTEGER,
-      },
-      goods_quantity: {
-        type: Sequelize.INTEGER,
-      },
-      order_date: {
-        type: Sequelize.DATE,
-        defaultValue: Sequelize.literal("NOW()"),
-      },
-      rec_name: {
+      goods_name: {
         type: Sequelize.STRING,
       },
-      rec_phone: {
+      goods_img: {
         type: Sequelize.STRING,
       },
-      rec_address: {
+      goods_price: {
+        type: Sequelize.INTEGER,
+      },
+      stock: {
+        type: Sequelize.INTEGER,
+      },
+      info_img: {
         type: Sequelize.STRING,
-      },
-      invoice_number: {
-        type: Sequelize.INTEGER,
-      },
-      order_state: {
-        type: Sequelize.INTEGER,
       },
       createdAt: {
         allowNull: false,
@@ -49,6 +42,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable("order_lists");
+    await queryInterface.dropTable("goods");
   },
 };

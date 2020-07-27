@@ -8,13 +8,13 @@
   {
     "user_id": 1,
     "goods_id": 1,
-    "title": "질문합니다",
-    "contents": "조화인가요? 생화인가요?"
+    "title": "질문합니다ㅎㅎ",
+    "contents": "배송은 얼마나 걸리나요??"
   },
   {
     "user_id": 1,
-    "goods_id": 3,
-    "title": "질문합니다",
-    "contents": "조화인가요? 생화인가요?"
+    "goods_id": 1,
+    "title": "질문합니다!!",
+    "contents": "이쁜가요?"
   }
 ]

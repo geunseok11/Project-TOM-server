@@ -7,12 +7,16 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
+        onUpdate: "cascade",
+        onDelete: "set null",
       },
       user_id: {
         type: Sequelize.INTEGER,
+        references: { name: "users", key: "id" },
       },
       goods_id: {
         type: Sequelize.INTEGER,
+        references: { name: "goods", key: "id" },
       },
       title: {
         type: Sequelize.STRING,

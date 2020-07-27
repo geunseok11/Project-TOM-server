@@ -3,13 +3,21 @@ const { Model } = require("sequelize");
 const crypto = require("crypto");
 module.exports = (sequelize, DataTypes) => {
   class users extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
     static associate(models) {
-      // define association here
+      this.hasMany(models.goods, { onUpdate: "cascade", onDelete: "set null" });
+      this.hasMany(models.q_lists, {
+        onUpdate: "cascade",
+        onDelete: "set null",
+      });
+      this.hasMany(models.reply, { onUpdate: "cascade", onDelete: "set null" });
+      this.hasMany(models.reviews, {
+        onUpdate: "cascade",
+        onDelete: "set null",
+      });
+      this.hasMany(models.order_lists, {
+        onUpdate: "cascade",
+        onDelete: "set null",
+      });
     }
   }
   users.init(
@@ -31,6 +39,14 @@ module.exports = (sequelize, DataTypes) => {
             .createHmac("sha256", "tomtom")
             .update(data.password)
             .digest("hex");
+        },
+        beforeBulkCreate: (data, options) => {
+          data.forEach((val) => {
+            val.password = crypto
+              .createHmac("sha256", "tomtom")
+              .update(val.password)
+              .digest("hex");
+          });
         },
         beforeFind: (data, options) => {
           if (data.where.password) {

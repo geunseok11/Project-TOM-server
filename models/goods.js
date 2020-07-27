@@ -2,13 +2,23 @@
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class goods extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
     static associate(models) {
-      // define association here
+      this.belongsTo(models.users, {
+        onUpdate: "cascade",
+        onDelete: "set null",
+      });
+      this.hasMany(models.q_lists, {
+        onUpdate: "cascade",
+        onDelete: "set null",
+      });
+      this.hasMany(models.reviews, {
+        onUpdate: "cascade",
+        onDelete: "set null",
+      });
+      this.hasMany(models.order_lists, {
+        onUpdate: "cascade",
+        onDelete: "set null",
+      });
     }
   }
   goods.init(

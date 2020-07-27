@@ -11,7 +11,7 @@ module.exports = {
           attributes: ["goods_name", "goods_img", "goods_price", "stock"],
         })
         .then((onSaleData) => {
-          if (onSaleData) {
+          if (onSaleData.length !== 0) {
             res.status(200).send(onSaleData);
           } else {
             res.status(404).send({

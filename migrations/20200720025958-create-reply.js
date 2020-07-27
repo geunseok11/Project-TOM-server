@@ -10,12 +10,14 @@ module.exports = {
       },
       user_id: {
         type: Sequelize.INTEGER,
+        references: { name: "users", key: "id" },
       },
       text: {
         type: Sequelize.STRING,
       },
       q_lists_id: {
         type: Sequelize.INTEGER,
+        references: { name: "q_lists", key: "id" },
       },
       createdAt: {
         allowNull: false,

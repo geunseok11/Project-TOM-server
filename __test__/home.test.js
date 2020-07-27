@@ -15,14 +15,13 @@ const {
   reviews,
   goods,
   order_lists,
+  sequelize,
 } = require("../models");
-const goodsFixture = require("./fixtures/goods.json");
+const { refreshData } = require("./fixtures/index");
 
 describe("Home Contorller API", () => {
   beforeEach(async () => {
-    // beforeEach 는 describe(suit)안에 it(테스트코드)마다 it()이 실행되기 전에 실행된다.
-    await goods.destroy({ where: {}, truncate: true });
-    await goods.bulkCreate(goodsFixture);
+    await refreshData();
   });
   describe("GET /home", () => {
     // 일반 회원가입 => user_type이 1인 경우
@@ -67,7 +66,7 @@ describe("Home Contorller API", () => {
         });
     });
     it("홈 접속시 시 데이터가 없으면 메세지를 응답해야 합니다", (done) => {
-      goods.destroy({ where: {}, truncate: true });
+      goods.destroy({ where: {} });
       chai
         .request(app)
         .get("/home")
@@ -83,9 +82,5 @@ describe("Home Contorller API", () => {
           done();
         });
     });
-    after(() => {
-      goods.bulkCreate(goodsFixture);
-    });
   });
-  //===
 });
