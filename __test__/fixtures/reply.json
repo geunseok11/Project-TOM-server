@@ -18,5 +18,15 @@
     "user_id": 1,
     "text": "네 이뻐요",
     "q_lists_id": 3
+  },
+  {
+    "user_id": 1,
+    "text": "별로인듯",
+    "q_lists_id": 3
+  },
+  {
+    "user_id": 1,
+    "text": "오래보아야 이쁘다",
+    "q_lists_id": 3
   }
 ]

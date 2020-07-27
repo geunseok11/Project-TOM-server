@@ -16,5 +16,17 @@
     "goods_id": 1,
     "title": "질문합니다!!",
     "contents": "이쁜가요?"
+  },
+  {
+    "user_id": 1,
+    "goods_id": 4,
+    "title": "질문합니다!!",
+    "contents": "이쁜가요?"
+  },
+  {
+    "user_id": 1,
+    "goods_id": 5,
+    "title": "질문합니다!!",
+    "contents": "이쁜가요?"
   }
 ]
