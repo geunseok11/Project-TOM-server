@@ -4,10 +4,12 @@ module.exports = (sequelize, DataTypes) => {
   class order_lists extends Model {
     static associate(models) {
       this.belongsTo(models.users, {
+        foreignKey: "users_id",
         onUpdate: "cascade",
         onDelete: "set null",
       });
       this.belongsTo(models.goods, {
+        foreignKey: "goods_id",
         onUpdate: "cascade",
         onDelete: "set null",
       });

@@ -4,18 +4,22 @@ module.exports = (sequelize, DataTypes) => {
   class goods extends Model {
     static associate(models) {
       this.belongsTo(models.users, {
+        foreignKey: "users_id",
         onUpdate: "cascade",
         onDelete: "set null",
       });
       this.hasMany(models.q_lists, {
+        foreignKey: "goods_id",
         onUpdate: "cascade",
         onDelete: "set null",
       });
       this.hasMany(models.reviews, {
+        foreignKey: "goods_id",
         onUpdate: "cascade",
         onDelete: "set null",
       });
       this.hasMany(models.order_lists, {
+        foreignKey: "goods_id",
         onUpdate: "cascade",
         onDelete: "set null",
       });

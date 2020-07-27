@@ -4,17 +4,28 @@ const crypto = require("crypto");
 module.exports = (sequelize, DataTypes) => {
   class users extends Model {
     static associate(models) {
-      this.hasMany(models.goods, { onUpdate: "cascade", onDelete: "set null" });
-      this.hasMany(models.q_lists, {
+      this.hasMany(models.goods, {
+        foreignKey: "users_id",
         onUpdate: "cascade",
         onDelete: "set null",
       });
-      this.hasMany(models.reply, { onUpdate: "cascade", onDelete: "set null" });
+      this.hasMany(models.q_lists, {
+        foreignKey: "users_id",
+        onUpdate: "cascade",
+        onDelete: "set null",
+      });
+      this.hasMany(models.reply, {
+        foreignKey: "users_id",
+        onUpdate: "cascade",
+        onDelete: "set null",
+      });
       this.hasMany(models.reviews, {
+        foreignKey: "users_id",
         onUpdate: "cascade",
         onDelete: "set null",
       });
       this.hasMany(models.order_lists, {
+        foreignKey: "users_id",
         onUpdate: "cascade",
         onDelete: "set null",
       });

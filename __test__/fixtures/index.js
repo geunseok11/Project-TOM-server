@@ -22,23 +22,5 @@ module.exports = {
     await reply.bulkCreate(replyFixture);
     await reviews.bulkCreate(reviewFixture);
     await order_lists.bulkCreate(ordersFixture);
-    // await userFixture.forEach((val) => {
-    //   users.create(val);
-    // });
-    // await goodsFixture.forEach((val) => {
-    //   goods.create(val);
-    // });
-    // await q_listsFixture.forEach((val) => {
-    //   q_lists.create(val);
-    // });
-    // await reviewFixture.forEach((val) => {
-    //   reviews.create(val);
-    // });
-    // await replyFixture.forEach((val) => {
-    //   reply.create(val);
-    // });
-    // await ordersFixture.forEach((val) => {
-    //   order_lists.create(val);
-    // });
   },
 };

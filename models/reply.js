@@ -4,10 +4,12 @@ module.exports = (sequelize, DataTypes) => {
   class reply extends Model {
     static associate(models) {
       this.belongsTo(models.users, {
+        foreignKey: "users_id",
         onUpdate: "cascade",
         onDelete: "set null",
       });
       this.belongsTo(models.q_lists, {
+        foreignKey: "q_lists_id",
         onUpdate: "cascade",
         onDelete: "set null",
       });

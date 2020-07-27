@@ -20,7 +20,7 @@
     "order_state": 123
   },
   {
-    "user_id": 2,
+    "user_id": 3,
     "goods_id": 3,
     "goods_quantity": 5,
     "rec_name": "홍길동",
