@@ -366,8 +366,10 @@ describe("Goods Test Case", () => {
           agent
             .post("/goods/info/review")
             .send({
-              title: "hello",
-              star: 4,
+
+              title: [2332, 232324],
+              star: [12, 4343, 3232],
+
               review_img: "file",
             })
             .end((err, res) => {
@@ -376,7 +378,7 @@ describe("Goods Test Case", () => {
                 return;
               }
               expect(res).to.have.status(404);
-              expect(res.body.message).to.equal("내용이 없습니다.");
+              expect(res.body.message).to.equal("글 작성이 실패하였습니다.");
               done();
             });
         });
