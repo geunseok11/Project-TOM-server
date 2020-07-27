@@ -5,27 +5,27 @@ module.exports = (sequelize, DataTypes) => {
   class users extends Model {
     static associate(models) {
       this.hasMany(models.goods, {
-        foreignKey: "users_id",
+        foreignKey: "user_id",
         onUpdate: "cascade",
         onDelete: "set null",
       });
       this.hasMany(models.q_lists, {
-        foreignKey: "users_id",
+        foreignKey: "user_id",
         onUpdate: "cascade",
         onDelete: "set null",
       });
       this.hasMany(models.reply, {
-        foreignKey: "users_id",
+        foreignKey: "user_id",
         onUpdate: "cascade",
         onDelete: "set null",
       });
       this.hasMany(models.reviews, {
-        foreignKey: "users_id",
+        foreignKey: "user_id",
         onUpdate: "cascade",
         onDelete: "set null",
       });
       this.hasMany(models.order_lists, {
-        foreignKey: "users_id",
+        foreignKey: "user_id",
         onUpdate: "cascade",
         onDelete: "set null",
       });

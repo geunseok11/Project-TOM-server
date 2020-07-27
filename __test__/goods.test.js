@@ -124,7 +124,7 @@ describe("Goods Test Case", () => {
     });
   });
   describe("GET/goods/info/qa_lists", () => {
-    it("해당 제품과 관련된 질문의 목록을 응답해야 합니다.", async (done) => {
+    it("해당 제품과 관련된 질문의 목록을 응답해야 합니다.", (done) => {
       chai
         .request(app)
         .get("/goods/info/qa_lists")
@@ -147,7 +147,7 @@ describe("Goods Test Case", () => {
           done();
         });
     });
-    it("해당 제품과 관련된 질문이 없을 경우 없다는 응답을 해야합니다.", async (done) => {
+    it("해당 제품과 관련된 질문이 없을 경우 없다는 응답을 해야합니다.", (done) => {
       chai
         .request(app)
         .get("/goods/info/qa_lists")
@@ -189,7 +189,7 @@ describe("Goods Test Case", () => {
                 })
                 .then((data) => {
                   if (data) {
-                    expect(res).to.have.status(200);
+                    expect(res).to.have.status(201);
                     expect(res.body.message).to.equal(
                       "성공적으로 글이 작성 되었습니다."
                     );
@@ -244,7 +244,7 @@ describe("Goods Test Case", () => {
                 })
                 .then((data) => {
                   if (data) {
-                    expect(res).to.have.status(200);
+                    expect(res).to.have.status(201);
                     expect(res.body.message).to.equal("리플 성공");
                   }
                 });
@@ -274,7 +274,7 @@ describe("Goods Test Case", () => {
     });
   });
   describe("GET/goods/info/review", () => {
-    it("해당 제품과 관련된 리뷰를 응답해야 합니다.", async (done) => {
+    it("해당 제품과 관련된 리뷰를 응답해야 합니다.", (done) => {
       chai
         .request(app)
         .get("/goods/info/review")
@@ -293,15 +293,15 @@ describe("Goods Test Case", () => {
               "star",
               "review_img",
             ]);
-            done();
           });
+          done();
         });
     });
     it("해당 제품과 관련된 리뷰가 없을 경우 없다는 응답을 해야합니다.", (done) => {
       chai
         .request(app)
         .get("/goods/info/review")
-        .send({ goods_id: 2 })
+        .send({ goods_id: 8 })
         .end((err, res) => {
           if (err) {
             done(err);
@@ -347,7 +347,7 @@ describe("Goods Test Case", () => {
                 })
                 .then((data) => {
                   if (data) {
-                    expect(res).to.have.status(200);
+                    expect(res).to.have.status(201);
                     expect(res.body.message).to.equal(
                       "성공적으로 글이 작성 되었습니다."
                     );
@@ -366,7 +366,6 @@ describe("Goods Test Case", () => {
           agent
             .post("/goods/info/review")
             .send({
-              goods_id: 1,
               title: "hello",
               star: 4,
               review_img: "file",

@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
   class reply extends Model {
     static associate(models) {
       this.belongsTo(models.users, {
-        foreignKey: "users_id",
+        foreignKey: "user_id",
         onUpdate: "cascade",
         onDelete: "set null",
       });
