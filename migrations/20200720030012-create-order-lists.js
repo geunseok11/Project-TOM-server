@@ -33,6 +33,9 @@ module.exports = {
       rec_address: {
         type: Sequelize.STRING,
       },
+      delivery_company_id: {
+        type: Sequelize.INTEGER,
+      },
       invoice_number: {
         type: Sequelize.INTEGER,
       },

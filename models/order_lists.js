@@ -24,6 +24,7 @@ module.exports = (sequelize, DataTypes) => {
       rec_name: DataTypes.STRING,
       rec_phone: DataTypes.STRING,
       rec_address: DataTypes.STRING,
+      delivery_company_id: DataTypes.INTEGER,
       invoice_number: DataTypes.INTEGER,
       order_state: DataTypes.INTEGER,
     },
