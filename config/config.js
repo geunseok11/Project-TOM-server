@@ -8,11 +8,10 @@ module.exports = {
     logging: false,
   },
   test: {
-    port: process.env.PORT,
     username: process.env.DATABASE_ID,
     password: process.env.DATABASE_PASSWORD,
     database: "tom",
-    host: process.env.DB_HOST,
+    host: "127.0.0.1",
     dialect: "mysql",
     logging: false,
   },
