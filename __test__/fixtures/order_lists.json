@@ -28,6 +28,7 @@
     "rec_name": "홍길동",
     "rec_phone": "010-1234-1234",
     "rec_address": "강남구 대치동",
+    "delivery_company_id": "05",
     "invoice_number": "123",
     "order_state": 123
   },
@@ -38,6 +39,7 @@
     "rec_name": "홍길동",
     "rec_phone": "010-1234-1234",
     "rec_address": "강남구 대치동",
+    "delivery_company_id": "05",
     "invoice_number": "123",
     "order_state": 123
   },
@@ -48,6 +50,7 @@
     "rec_name": "홍길동",
     "rec_phone": "010-1234-1234",
     "rec_address": "강남구 대치동",
+    "delivery_company_id": "05",
     "invoice_number": "123",
     "order_state": 123
   },
