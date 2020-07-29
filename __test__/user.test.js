@@ -8,15 +8,7 @@ const expect = chai.expect;
 chai.use(chaiHttp);
 
 const app = require("../app");
-const {
-  users,
-  q_lists,
-  reply,
-  reviews,
-  goods,
-  order_lists,
-} = require("../models");
-const userFixture = require("./fixtures/users.json");
+const { users } = require("../models");
 const { refreshData } = require("./fixtures/index");
 
 describe("User Contorller API", () => {
@@ -122,7 +114,7 @@ describe("User Contorller API", () => {
         .request(app)
         .post("/user/emailcheck")
         .send({
-          email: "cunsumer@gmail.com",
+          email: "consumer1@gmail.com",
         })
         .end((err, res) => {
           if (err) {
@@ -141,7 +133,7 @@ describe("User Contorller API", () => {
         .request(app)
         .post("/user/login")
         .send({
-          email: "cunsumer@gmail.com",
+          email: "consumer1@gmail.com",
           password: "1234",
         })
         .end((err, res) => {
@@ -166,7 +158,7 @@ describe("User Contorller API", () => {
         .request(app)
         .post("/user/login")
         .send({
-          email: "cunsumer@gmail.com",
+          email: "consumer1@gmail.com",
           password: "12345",
         })
         .end((err, res) => {
@@ -187,7 +179,7 @@ describe("User Contorller API", () => {
         .request(app)
         .post("/user/login")
         .send({
-          email: "seller@gmail.com",
+          email: "seller1@gmail.com",
           password: "1234",
         })
         .end((err, res) => {
@@ -210,7 +202,7 @@ describe("User Contorller API", () => {
       agent
         .post("/user/login")
         .send({
-          email: "cunsumer@gmail.com",
+          email: "consumer1@gmail.com",
           password: "1234",
         })
         .then(function (res) {
@@ -231,7 +223,7 @@ describe("User Contorller API", () => {
       agent
         .post("/user/login")
         .send({
-          email: "cunsumer@gmail.com",
+          email: "consumer1@gmail.com",
           password: "123456",
         })
         .then(function (res) {
@@ -257,7 +249,7 @@ describe("User Contorller API", () => {
         .request(app)
         .post("/user/certification")
         .send({
-          email: "cunsumer@gmail.com",
+          email: "consumer1@gmail.com",
           password: "1234",
         })
         .end((err, res) => {
@@ -276,7 +268,7 @@ describe("User Contorller API", () => {
         .request(app)
         .post("/user/certification")
         .send({
-          email: "cunsumer@gmail.com",
+          email: "consumer1@gmail.com",
           password: "12345",
         })
         .end((err, res) => {
@@ -297,7 +289,7 @@ describe("User Contorller API", () => {
         .request(app)
         .post("/user/resign")
         .send({
-          email: "cunsumer@gmail.com",
+          email: "consumer1@gmail.com",
           password: "1234",
         })
         .end((err, res) => {
@@ -307,7 +299,7 @@ describe("User Contorller API", () => {
           }
 
           users
-            .findOne({ where: { email: "cunsumer@gmail.com" } })
+            .findOne({ where: { email: "consumer1@gmail.com" } })
             .then((user) => {
               expect(user).to.equal(null);
               expect(res).to.have.status(201);
@@ -323,7 +315,7 @@ describe("User Contorller API", () => {
         .request(app)
         .post("/user/resign")
         .send({
-          email: "cunsumer@gmail.com",
+          email: "consumer1@gmail.com",
           password: "12345",
         })
         .end((err, res) => {
@@ -344,7 +336,7 @@ describe("User Contorller API", () => {
       agent
         .post("/user/login")
         .send({
-          email: "seller222@gmail.com",
+          email: "seller2@gmail.com",
           password: "1234",
         })
         .then((res) => {
@@ -372,14 +364,14 @@ describe("User Contorller API", () => {
       agent
         .post("/user/login")
         .send({
-          email: "seller222@gmail.com",
+          email: "seller2@gmail.com",
           password: "1234",
         })
         .then((res) => {
           agent
             .post("/user/edituserinfo")
             .send({
-              username: "승인된 판매자",
+              username: "정코딩",
               password: "1234",
               phone: "010-1234-5678",
               address: "서울시 OO구 OO로 OOO, 상세주소",
