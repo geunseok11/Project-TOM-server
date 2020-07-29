@@ -3,7 +3,8 @@ const e = require("express");
 
 module.exports = {
   get: (req, res) => {
-    if (req.session.userId) {
+    let token = res.userId;
+    if (token) {
       order_lists
         .findAll({
           include: [
@@ -12,13 +13,14 @@ module.exports = {
               attributes: ["goods_name", "goods_img", "goods_price"],
             },
           ],
-          where: { user_id: req.session.userId },
+          where: { user_id: token },
         })
         .then((data) => {
           if (data.length !== 0) {
             let arr = [];
             data.forEach((val) => {
               let obj = {
+                order_id: val.id,
                 goods_name: val.good.goods_name,
                 goods_img: val.good.goods_img,
                 goods_price: val.good.goods_price,
@@ -33,7 +35,7 @@ module.exports = {
           }
         });
     } else {
-      res.status(404).send({ message: "로그인하세요." });
+      res.status(403).send({ message: "로그인이 필요한 서비스입니다." });
     }
   },
 };

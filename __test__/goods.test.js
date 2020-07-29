@@ -239,7 +239,7 @@ describe("Goods Test Case", () => {
                 .findOne({
                   where: {
                     text: "yes!",
-                    qa_list_id: 1,
+                    q_lists_id: 1,
                   },
                 })
                 .then((data) => {
@@ -366,7 +366,6 @@ describe("Goods Test Case", () => {
           agent
             .post("/goods/info/review")
             .send({
-
               title: [2332, 232324],
               star: [12, 4343, 3232],
 

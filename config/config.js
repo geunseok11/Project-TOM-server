@@ -15,6 +15,7 @@ module.exports = {
     dialect: "mysql",
     logging: false,
   },
+
   production: {
     port: process.env.PORT,
     username: process.env.DATABASE_ID,
@@ -23,5 +24,8 @@ module.exports = {
     host: process.env.DB_HOST,
     dialect: "mysql",
     logging: false,
+  },
+  secret: {
+    tomKey: process.env.SVS,
   },
 };

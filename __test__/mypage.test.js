@@ -32,6 +32,7 @@ describe("Mypage Test Case", () => {
             expect(res).to.have.status(200);
             res.body.forEach((value) => {
               expect(value).has.all.keys([
+                "order_id",
                 "goods_name",
                 "goods_img",
                 "goods_price",
@@ -53,6 +54,7 @@ describe("Mypage Test Case", () => {
             expect(res).to.have.status(200);
             res.body.forEach((value) => {
               expect(value).has.all.keys([
+                "order_id",
                 "goods_name",
                 "goods_img",
                 "goods_price",
@@ -89,6 +91,7 @@ describe("Mypage Test Case", () => {
             expect(res).to.have.status(200);
             res.body.forEach((value) => {
               expect(value).has.all.keys([
+                "order_id",
                 "goods_name",
                 "goods_img",
                 "goods_price",

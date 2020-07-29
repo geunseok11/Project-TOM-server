@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const session = require("express-session");
 const goods = require("./routes/goods");
@@ -9,10 +10,11 @@ const home = require("./routes/home");
 const app = express();
 const port = 4000;
 
+app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(
   cors({
-    origin: "*",
+    origin: "http://localhost:3000",
     methods: ["GET", "POST"],
     credentials: true,
   })

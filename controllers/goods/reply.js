@@ -2,16 +2,16 @@ const { reply } = require("../../models");
 module.exports = {
   post: (req, res) => {
     const { text, qa_list_id } = req.body;
-    const session = req.session.userId;
-    if (!session) {
-      res.status(404).send({
-        message: "세션이 존재하지 않습니다.",
+    const token = res.userId;
+    if (!token) {
+      res.status(403).send({
+        message: "로그인이 필요한 서비스입니다.",
       });
     }
     if (text) {
       reply
         .create({
-          user_id: session,
+          user_id: token,
           text: text,
           q_lists_id: qa_list_id,
         })

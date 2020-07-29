@@ -1,6 +1,5 @@
 const { reviews, users } = require("../../models");
 module.exports = {
-
   get: (req, res) => {
     let { goods_id } = req.body;
     reviews
@@ -28,10 +27,11 @@ module.exports = {
   },
   post: (req, res) => {
     let { review_img, title, contents, star, goods_id } = req.body;
-    if (req.session.userId) {
+    let token = res.userId;
+    if (token) {
       reviews
         .create({
-          user_id: req.session.userId,
+          user_id: token,
           goods_id: goods_id,
           title: title,
           contents: contents,
@@ -46,9 +46,8 @@ module.exports = {
             message: "글 작성이 실패하였습니다.",
           });
         });
-
     } else {
-      res.status(403).send({ message: "로그인하세요" });
+      res.status(403).send({ message: "로그인이 필요한 서비스입니다." });
     }
   },
 };

@@ -2,12 +2,13 @@ const crypto = require("crypto");
 const { users } = require("../../models");
 module.exports = {
   post: (req, res) => {
-    if (!req.session.userId) {
-      res.status(404).send({
-        message: "세션이 존재하지 않습니다.",
+    let token = res.userId;
+    if (!token) {
+      res.status(403).send({
+        message: "로그인이 필요한 서비스입니다.",
       });
     }
-    let session = req.session.userId;
+    let session = token;
     let userInput = req.body;
 
     users

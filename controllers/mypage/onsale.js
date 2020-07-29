@@ -1,12 +1,12 @@
 const { users, goods } = require("../../models");
 module.exports = {
   get: (req, res) => {
-    const session = req.session.userId;
-    if (session) {
+    const token = res.userId;
+    if (token) {
       goods
         .findAll({
           where: {
-            user_id: session,
+            user_id: token,
           },
           attributes: ["goods_name", "goods_img", "goods_price", "stock"],
         })
@@ -20,8 +20,8 @@ module.exports = {
           }
         });
     } else {
-      res.status(404).send({
-        message: "세션이 존재하지 않습니다.",
+      res.status(403).send({
+        message: "로그인이 필요한 서비스입니다.",
       });
     }
   },

@@ -238,8 +238,10 @@ describe("User Contorller API", () => {
           agent
             .post("/user/signout")
             .then(function (res2) {
-              expect(res2).to.have.status(404);
-              expect(res2.body.message).to.equal("세션이 존재하지 않습니다.");
+              expect(res2).to.have.status(403);
+              expect(res2.body.message).to.equal(
+                "로그인이 필요한 서비스입니다."
+              );
               done();
             })
             .catch((err) => {

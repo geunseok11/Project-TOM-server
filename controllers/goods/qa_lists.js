@@ -3,7 +3,6 @@ const { users, q_lists, reply } = require("../../models");
 module.exports = {
   get: async (req, res) => {
     const { goods_id } = req.body;
-    const session = req.session.userId;
 
     let qLists = await q_lists
       .findAll({
@@ -75,16 +74,16 @@ module.exports = {
   },
   post: (req, res) => {
     const { goods_id, title, contents } = req.body;
-    const session = req.session.userId;
-    if (!session) {
-      res.status(404).send({
-        message: " 세션이 존재하지 않습니다.",
+    const token = res.userId;
+    if (!token) {
+      res.status(403).send({
+        message: "로그인이 필요한 서비스입니다.",
       });
     }
     if (title && contents) {
       q_lists
         .create({
-          user_id: session,
+          user_id: token,
           goods_id: goods_id,
           title: title,
           contents: contents,
