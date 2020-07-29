@@ -34,10 +34,10 @@ module.exports = {
         type: Sequelize.STRING,
       },
       delivery_company_id: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
       },
       invoice_number: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
       },
       order_state: {
         type: Sequelize.INTEGER,

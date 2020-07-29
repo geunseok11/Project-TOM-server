@@ -4,7 +4,11 @@ const { mypageController } = require("../controllers/index");
 const { jwtVerification } = require("../jwt-utils/index");
 
 router.get("/purchase", jwtVerification, mypageController.purchase.get);
-router.get("/purchase/traking", jwtVerification, mypageController.tracking.get);
+router.get(
+  "/purchase/tracking",
+  jwtVerification,
+  mypageController.tracking.get
+);
 router.get("/sale", jwtVerification, mypageController.sale.get);
 router.get("/onsale", jwtVerification, mypageController.onsale.get);
 
