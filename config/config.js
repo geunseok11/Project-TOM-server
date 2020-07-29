@@ -25,4 +25,5 @@ module.exports = {
     dialect: "mysql",
     logging: false,
   },
+  TRACKING_KEY: process.env.TRACKING_KEY,
 };
