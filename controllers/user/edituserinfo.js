@@ -8,12 +8,11 @@ module.exports = {
         message: "로그인이 필요한 서비스입니다.",
       });
     }
-    let session = token;
     let userInput = req.body;
 
     users
       .findOne({
-        where: { id: session },
+        where: { id: token },
         attributes: [
           "username",
           "password",
@@ -41,7 +40,7 @@ module.exports = {
           users
             .update(userInput, {
               where: {
-                id: session,
+                id: token,
               },
             })
             .then((result) => {

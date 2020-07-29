@@ -6,14 +6,7 @@ const expect = chai.expect;
 chai.use(chaiHttp);
 
 const app = require("../app");
-const {
-  users,
-  q_lists,
-  reply,
-  reviews,
-  goods,
-  order_lists,
-} = require("../models");
+const { q_lists, reply, reviews, goods } = require("../models");
 const { refreshData } = require("./fixtures/index");
 
 describe("Goods Test Case", () => {
@@ -169,7 +162,7 @@ describe("Goods Test Case", () => {
       const agent = chai.request.agent(app);
       agent
         .post("/user/login")
-        .send({ email: "cunsumer@gmail.com", password: "1234" })
+        .send({ email: "consumer1@gmail.com", password: "1234" })
         .then(() => {
           agent
             .post("/goods/info/qa_lists")
@@ -203,7 +196,7 @@ describe("Goods Test Case", () => {
       const agent = chai.request.agent(app);
       agent
         .post("/user/login")
-        .send({ email: "cunsumer@gmail.com", password: "1234" })
+        .send({ email: "consumer1@gmail.com", password: "1234" })
         .then(() => {
           agent
             .post("/goods/info/qa_lists")
@@ -225,7 +218,7 @@ describe("Goods Test Case", () => {
       const agent = chai.request.agent(app);
       agent
         .post("/user/login")
-        .send({ email: "cunsumer@gmail.com", password: "1234" })
+        .send({ email: "consumer1@gmail.com", password: "1234" })
         .then(() => {
           agent
             .post("/goods/info/reply")
@@ -256,7 +249,7 @@ describe("Goods Test Case", () => {
       const agent = chai.request.agent(app);
       agent
         .post("/user/login")
-        .send({ email: "cunsumer@gmail.com", password: "1234" })
+        .send({ email: "consumer1@gmail.com", password: "1234" })
         .then(() => {
           agent
             .post("/goods/info/reply")
@@ -319,7 +312,7 @@ describe("Goods Test Case", () => {
       const agent = chai.request.agent(app);
       agent
         .post("/user/login")
-        .send({ email: "cunsumer@gmail.com", password: "1234" })
+        .send({ email: "consumer1@gmail.com", password: "1234" })
         .then(() => {
           agent
             .post("/goods/info/review")
@@ -361,7 +354,7 @@ describe("Goods Test Case", () => {
       const agent = chai.request.agent(app);
       agent
         .post("/user/login")
-        .send({ email: "cunsumer@gmail.com", password: "1234" })
+        .send({ email: "consumer1@gmail.com", password: "1234" })
         .then(() => {
           agent
             .post("/goods/info/review")
@@ -388,7 +381,7 @@ describe("Goods Test Case", () => {
       const agent = chai.request.agent(app);
       agent
         .post("/user/login")
-        .send({ email: "cunsumer@gmail.com", password: "1234" })
+        .send({ email: "seller2@gmail.com", password: "1234" })
         .then(() => {
           agent
             .post("/goods/registration")
@@ -430,13 +423,13 @@ describe("Goods Test Case", () => {
       const agent = chai.request.agent(app);
       agent
         .post("/user/login")
-        .send({ email: "cunsumer@gmail.com", password: "1234" })
+        .send({ email: "seller2@gmail.com", password: "1234" })
         .then(() => {
           agent
             .post("/goods/registration")
             .send({
-              goods_name: "freesia",
-              goods_price: 13000,
+              goods_name: ["freesia"],
+              goods_price: [13000, "23232"],
               stock: [23, 23],
               info_img: "file",
             })
