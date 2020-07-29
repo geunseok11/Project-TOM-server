@@ -28,4 +28,5 @@ module.exports = {
   secret: {
     tomKey: process.env.SVS,
   },
+  TRACKING_KEY: process.env.TRACKING_KEY,
 };
