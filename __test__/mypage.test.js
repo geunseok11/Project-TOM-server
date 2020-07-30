@@ -27,6 +27,8 @@ describe("Mypage Test Case", () => {
                 "goods_name",
                 "goods_img",
                 "goods_price",
+                "rec_name",
+                "rec_address",
                 "goods_quantity",
                 "order_date",
               ]);
@@ -49,6 +51,8 @@ describe("Mypage Test Case", () => {
                 "goods_name",
                 "goods_img",
                 "goods_price",
+                "rec_name",
+                "rec_address",
                 "goods_quantity",
                 "order_date",
               ]);
@@ -86,6 +90,8 @@ describe("Mypage Test Case", () => {
                 "goods_name",
                 "goods_img",
                 "goods_price",
+                "rec_name",
+                "rec_address",
                 "goods_quantity",
                 "order_date",
               ]);

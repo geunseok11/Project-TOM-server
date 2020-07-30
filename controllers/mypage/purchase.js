@@ -23,7 +23,9 @@ module.exports = {
                 order_id: val.id,
                 goods_name: val.good.goods_name,
                 goods_img: val.good.goods_img,
-                goods_price: val.good.goods_price,
+                goods_price: val.good.goods_price * val.goods_quantity,
+                rec_name: val.rec_name,
+                rec_address: val.rec_address,
                 goods_quantity: val.goods_quantity,
                 order_date: val.order_date,
               };
