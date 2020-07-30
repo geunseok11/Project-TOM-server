@@ -4,5 +4,5 @@ module.exports = {
   sale: require("./sale"),
   tracking: require("./tracking"),
   confirm: require("./confirm"),
-  orderCheck: require("./orderCheck"),
+  ordercheck: require("./ordercheck"),
 };
