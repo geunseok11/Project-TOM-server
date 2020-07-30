@@ -8,7 +8,7 @@
     "rec_address": "강남구 대치동",
     "delivery_company_id": "05",
     "invoice_number": "418173431690",
-    "order_state": 123
+    "order_state": 1
   },
   {
     "user_id": 1,
@@ -19,7 +19,7 @@
     "rec_address": "강남구 대치동",
     "delivery_company_id": "05",
     "invoice_number": "418173431690",
-    "order_state": 123
+    "order_state": 1
   },
   {
     "user_id": 3,
@@ -51,8 +51,8 @@
     "rec_phone": "010-1234-1234",
     "rec_address": "강남구 대치동",
     "delivery_company_id": "05",
-    "invoice_number": "123",
-    "order_state": 123
+    "invoice_number": "418173431690",
+    "order_state": 2
   },
   {
     "user_id": 1,
@@ -62,7 +62,7 @@
     "rec_phone": "010-1234-1234",
     "rec_address": "강남구 대치동",
     "invoice_number": "123",
-    "order_state": 123
+    "order_state": 3
   },
   {
     "user_id": 1,
@@ -72,7 +72,7 @@
     "rec_phone": "010-1234-1234",
     "rec_address": "강남구 대치동",
     "invoice_number": "123",
-    "order_state": 123
+    "order_state": 3
   },
   {
     "user_id": 3,
