@@ -2,7 +2,6 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
-const session = require("express-session");
 const goods = require("./routes/goods");
 const mypage = require("./routes/mypage");
 const user = require("./routes/user");
@@ -17,13 +16,6 @@ app.use(
     origin: "http://localhost:3000",
     methods: ["GET", "POST"],
     credentials: true,
-  })
-);
-app.use(
-  session({
-    secret: "jerry",
-    resave: false,
-    saveUninitialized: true,
   })
 );
 

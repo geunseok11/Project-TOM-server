@@ -10,7 +10,13 @@ module.exports = {
         include: [
           {
             model: order_lists,
-            attributes: ["id", "goods_quantity", "order_date"],
+            attributes: [
+              "id",
+              "rec_name",
+              "rec_address",
+              "goods_quantity",
+              "order_date",
+            ],
           },
         ],
       });
@@ -25,6 +31,8 @@ module.exports = {
                 goods_name: val.goods_name,
                 goods_img: val.goods_img,
                 goods_price: val.goods_price * order.goods_quantity,
+                rec_name: order.rec_name,
+                rec_address: order.rec_address,
                 goods_quantity: order.goods_quantity,
                 order_date: order.order_date,
               });
