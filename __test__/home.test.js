@@ -8,15 +8,7 @@ const expect = chai.expect;
 chai.use(chaiHttp);
 
 const app = require("../app");
-const {
-  users,
-  q_lists,
-  reply,
-  reviews,
-  goods,
-  order_lists,
-  sequelize,
-} = require("../models");
+const { goods } = require("../models");
 const { refreshData } = require("./fixtures/index");
 
 describe("Home Contorller API", () => {

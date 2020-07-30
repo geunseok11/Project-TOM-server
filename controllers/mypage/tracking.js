@@ -1,6 +1,6 @@
-const { order_lists } = require("../../models");
-const axios = require("axios");
-const { TRACKING_KEY } = require("../../config/config");
+ const { order_lists } = require("../../models");
+ const axios = require("axios");
+ const { TRACKING_KEY } = require("../../config/config");
 module.exports = {
   get: async (req, res) => {
     const token = res.userId;

@@ -6,15 +6,6 @@ const expect = chai.expect;
 chai.use(chaiHttp);
 
 const app = require("../app");
-const {
-  users,
-  q_lists,
-  reply,
-  reviews,
-  goods,
-  order_lists,
-} = require("../models");
-const goodFixtures = require("./fixtures/goods.json");
 const { refreshData } = require("./fixtures/index");
 describe("Mypage Test Case", () => {
   beforeEach(async () => {
@@ -26,7 +17,7 @@ describe("Mypage Test Case", () => {
       const agent = chai.request.agent(app);
       agent
         .post("/user/login")
-        .send({ email: "cunsumer@gmail.com", password: "1234" })
+        .send({ email: "consumer1@gmail.com", password: "1234" })
         .then(() => {
           agent.get("/mypage/purchase").end((err, res) => {
             expect(res).to.have.status(200);
@@ -48,7 +39,7 @@ describe("Mypage Test Case", () => {
       const agent = chai.request.agent(app);
       agent
         .post("/user/login")
-        .send({ email: "seller222@gmail.com", password: "1234" })
+        .send({ email: "seller2@gmail.com", password: "1234" })
         .then(() => {
           agent.get("/mypage/purchase").end((err, res) => {
             expect(res).to.have.status(200);
@@ -70,7 +61,7 @@ describe("Mypage Test Case", () => {
       const agent = chai.request.agent(app);
       agent
         .post("/user/login")
-        .send({ email: "seller333@gmail.com", password: "1234" })
+        .send({ email: "consumer3@gmail.com", password: "1234" })
         .then(() => {
           agent.get("/mypage/purchase").end((err, res) => {
             expect(res).to.have.status(404);
@@ -85,7 +76,7 @@ describe("Mypage Test Case", () => {
       const agent = chai.request.agent(app);
       agent
         .post("/user/login")
-        .send({ email: "seller222@gmail.com", password: "1234" })
+        .send({ email: "seller2@gmail.com", password: "1234" })
         .then(() => {
           agent.get("/mypage/sale").end((err, res) => {
             expect(res).to.have.status(200);
@@ -107,7 +98,7 @@ describe("Mypage Test Case", () => {
       const agent = chai.request.agent(app);
       agent
         .post("/user/login")
-        .send({ email: "seller333@gmail.com", password: "1234" })
+        .send({ email: "seller4@gmail.com", password: "1234" })
         .then(() => {
           agent.get("/mypage/sale").end((err, res) => {
             expect(res).to.have.status(404);
@@ -122,7 +113,7 @@ describe("Mypage Test Case", () => {
       const agent = chai.request.agent(app);
       agent
         .post("/user/login")
-        .send({ email: "seller222@gmail.com", password: "1234" })
+        .send({ email: "seller2@gmail.com", password: "1234" })
         .then(() => {
           agent.get("/mypage/onsale").end((err, res) => {
             expect(res).to.have.status(200);
@@ -142,7 +133,7 @@ describe("Mypage Test Case", () => {
       const agent = chai.request.agent(app);
       agent
         .post("/user/login")
-        .send({ email: "seller333@gmail.com", password: "1234" })
+        .send({ email: "seller4@gmail.com", password: "1234" })
         .then(() => {
           agent.get("/mypage/onsale").end((err, res) => {
             expect(res).to.have.status(404);
