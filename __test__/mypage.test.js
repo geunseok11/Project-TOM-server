@@ -266,7 +266,7 @@ describe("Mypage Test Case", () => {
             .send({
               invoice_number: "21323232322",
               delivery_company_id: "99",
-              order_lists_id: 2,
+              order_lists_id: 4,
             })
             .end((err, res) => {
               expect(res).to.have.status(404);
