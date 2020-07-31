@@ -53,6 +53,7 @@ module.exports = {
           .then((replyData) => {
             let joinReply = replyData.map((reply) => {
               return {
+                id: reply.id,
                 username: reply.user.username,
                 text: reply.text,
                 createdAt: reply.createdAt,
@@ -99,6 +100,58 @@ module.exports = {
       });
     }
   },
-  put: () => {},
-  delete: () => {},
+  put: (req, res) => {
+    const { qa_list_id, title, contents } = req.body;
+    const token = res.userId;
+    if (!token) {
+      res.status(404).send({
+        message: "로그인이 필요한 서비스입니다.",
+      });
+    }
+    q_lists
+      .findOne({ where: { id: qa_list_id, title: title, contents: contents } })
+      .then((qListDatum) => {
+        if (qListDatum) {
+          res.status(404).send({
+            message: "QA 내용이 같습니다.",
+          });
+        } else {
+          q_lists
+            .update(
+              { title: title, contents: contents },
+              { where: { id: qa_list_id } }
+            )
+            .then(() => {
+              res.status(200).send({
+                message: "QA 업데이트 성공",
+              });
+            });
+        }
+      });
+  },
+  delete: (req, res) => {
+    const { qa_list_id } = req.body;
+    const token = res.userId;
+    if (!token) {
+      res.status(404).send({
+        message: "로그인이 필요한 서비스입니다.",
+      });
+    }
+    q_lists
+      .update(
+        { title: "", contents: "삭제된 게시물 입니다." },
+        { where: { id: qa_list_id } }
+      )
+      .then(([isUpdate]) => {
+        if (isUpdate) {
+          res.status(200).send({
+            message: "QA 삭제 성공",
+          });
+        } else {
+          res.status(404).send({
+            message: "존재하지 않는 qa_list_id 입니다.",
+          });
+        }
+      });
+  },
 };
