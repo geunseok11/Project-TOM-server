@@ -468,7 +468,7 @@ describe("Goods Test Case", () => {
                 return;
               }
               reply.findOne({ where: { id: 7 } }).then((data) => {
-                expect(data).to.equal(undefined);
+                expect(data).to.equal(null);
               });
 
               expect(res).to.have.status(200);
@@ -570,7 +570,6 @@ describe("Goods Test Case", () => {
               reviews
                 .findOne({
                   where: {
-                    goods_id: 1,
                     title: "hello",
                     contents: "It is good bro!",
                     star: 4,
@@ -639,7 +638,7 @@ describe("Goods Test Case", () => {
               reviews
                 .findOne({
                   where: {
-                    review_id: 1,
+                    id: 1,
                     title: "hello",
                     contents: "It is good bro!",
                     star: 3,
@@ -704,7 +703,7 @@ describe("Goods Test Case", () => {
                 return;
               }
               reviews.findOne({ where: { id: 1 } }).then((data) => {
-                expect(data).to.equal(undefined);
+                expect(data).to.equal(null);
               });
 
               expect(res).to.have.status(200);
