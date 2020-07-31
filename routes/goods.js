@@ -15,5 +15,15 @@ router.post(
   jwtVerification,
   goodsController.registration.post
 );
+router.put("/info/qa_lists", jwtVerification, goodsController.qaLists.put);
+router.put("/info/reply", jwtVerification, goodsController.reply.put);
+router.put("/info/review", jwtVerification, goodsController.review.put);
+router.delete(
+  "/info/qa_lists",
+  jwtVerification,
+  goodsController.qaLists.delete
+);
+router.delete("/info/reply", jwtVerification, goodsController.reply.delete);
+router.delete("/info/review", jwtVerification, goodsController.review.delete);
 
 module.exports = router;
