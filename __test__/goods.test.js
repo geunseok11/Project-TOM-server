@@ -200,7 +200,10 @@ describe("Goods Test Case", () => {
         .then(() => {
           agent
             .post("/goods/info/qa_lists")
-            .send({ title: "hello", goods_id: 1 })
+            .send({
+              title: "hello",
+              goods_id: 1,
+            })
             .end((err, res) => {
               if (err) {
                 done(err);
@@ -208,6 +211,125 @@ describe("Goods Test Case", () => {
               }
               expect(res).to.have.status(404);
               expect(res.body.message).to.equal("내용이 없습니다.");
+              done();
+            });
+        });
+    });
+  });
+  describe("PUT/goods/info/qa_lists", () => {
+    it("q_lists를 업데이트하면 데이터를 수정해야한다.", (done) => {
+      const agent = chai.request.agent(app);
+      agent
+        .post("/user/login")
+        .send({ email: "consumer1@gmail.com", password: "1234" })
+        .then(() => {
+          agent
+            .put("/goods/info/qa_lists")
+            .send({
+              title: "update",
+              contents: "this is updated data",
+              qa_list_id: 1,
+            })
+            .end((err, res) => {
+              if (err) {
+                done(err);
+                return;
+              }
+              q_lists
+                .findOne({
+                  where: {
+                    title: "update",
+                    contents: "this is updated data",
+                    id: 1,
+                  },
+                })
+                .then((data) => {
+                  if (data) {
+                    expect(res).to.have.status(201);
+                    expect(res.body.message).to.equal("QA 업데이트 성공.");
+                  }
+                });
+              done();
+            });
+        });
+    });
+    it("내용이 동일하면 에러메세지를 응답해야한다.", (done) => {
+      const agent = chai.request.agent(app);
+      agent
+        .post("/user/login")
+        .send({ email: "consumer1@gmail.com", password: "1234" })
+        .then(() => {
+          agent
+            .put("/goods/info/qa_lists")
+            .send({
+              title: "질문합니다",
+              contents: "조화인가요? 생화인가요?",
+              qa_list_id: 1,
+            })
+            .end((err, res) => {
+              if (err) {
+                done(err);
+                return;
+              }
+
+              expect(res).to.have.status(404);
+              expect(res.body.message).to.equal("QA 내용이 같습니다.");
+
+              done();
+            });
+        });
+    });
+  });
+  describe("DELETE/goods/info/qa_lists", () => {
+    it("질문 삭제 요청 시 데이터를 삭제해야한다.", (done) => {
+      const agent = chai.request.agent(app);
+      agent
+        .post("/user/login")
+        .send({ email: "consumer1@gmail.com", password: "1234" })
+        .then(() => {
+          agent
+            .delete("/goods/info/qa_lists")
+            .send({
+              qa_list_id: 2,
+            })
+            .end((err, res) => {
+              if (err) {
+                done(err);
+                return;
+              }
+              q_lists.findOne({ where: { id: 2 } }).then((data) => {
+                expect(data).to.equal(undefined);
+              });
+
+              expect(res).to.have.status(200);
+              expect(res.body.message).to.equal("QA 삭제 성공");
+
+              done();
+            });
+        });
+    });
+    it("존재하지 않는 질문을 삭제 요청 시 에러메세지를 응답한다.", (done) => {
+      const agent = chai.request.agent(app);
+      agent
+        .post("/user/login")
+        .send({ email: "consumer1@gmail.com", password: "1234" })
+        .then(() => {
+          agent
+            .delete("/goods/info/qa_lists")
+            .send({
+              qa_list_id: 40,
+            })
+            .end((err, res) => {
+              if (err) {
+                done(err);
+                return;
+              }
+
+              expect(res).to.have.status(404);
+              expect(res.body.message).to.equal(
+                "존재하지 않는 qa_list_id 입니다."
+              );
+
               done();
             });
         });
@@ -261,6 +383,122 @@ describe("Goods Test Case", () => {
               }
               expect(res).to.have.status(404);
               expect(res.body.message).to.equal("리플 실패");
+              done();
+            });
+        });
+    });
+  });
+  describe("PUT/goods/info/reply", () => {
+    it("리플 업데이트 요청 시 데이터를 수정해야한다.", (done) => {
+      const agent = chai.request.agent(app);
+      agent
+        .post("/user/login")
+        .send({ email: "consumer1@gmail.com", password: "1234" })
+        .then(() => {
+          agent
+            .put("/goods/info/reply")
+            .send({
+              text: "몰라몰라몰라",
+              id: 7,
+            })
+            .end((err, res) => {
+              if (err) {
+                done(err);
+                return;
+              }
+              reply
+                .findOne({
+                  where: {
+                    text: "",
+                    id: 7,
+                  },
+                })
+                .then((data) => {
+                  if (data) {
+                    expect(res).to.have.status(201);
+                    expect(res.body.message).to.equal("리플 업데이트 성공.");
+                  }
+                });
+              done();
+            });
+        });
+    });
+    it("내용이 동일하면 에러메세지를 응답해야한다.", (done) => {
+      const agent = chai.request.agent(app);
+      agent
+        .post("/user/login")
+        .send({ email: "consumer1@gmail.com", password: "1234" })
+        .then(() => {
+          agent
+            .put("/goods/info/reply")
+            .send({
+              text: "오래보아야 이쁘다",
+              reply_id: 7,
+            })
+            .end((err, res) => {
+              if (err) {
+                done(err);
+                return;
+              }
+
+              expect(res).to.have.status(404);
+              expect(res.body.message).to.equal("리플 내용이 같습니다.");
+
+              done();
+            });
+        });
+    });
+  });
+  describe("DELETE/goods/info/reply", () => {
+    it("리플 삭제 요청 시 데이터를 삭제해야한다.", (done) => {
+      const agent = chai.request.agent(app);
+      agent
+        .post("/user/login")
+        .send({ email: "consumer1@gmail.com", password: "1234" })
+        .then(() => {
+          agent
+            .delete("/goods/info/reply")
+            .send({
+              reply_id: 7,
+            })
+            .end((err, res) => {
+              if (err) {
+                done(err);
+                return;
+              }
+              reply.findOne({ where: { id: 7 } }).then((data) => {
+                expect(data).to.equal(undefined);
+              });
+
+              expect(res).to.have.status(200);
+              expect(res.body.message).to.equal("리플 삭제 성공");
+
+              done();
+            });
+        });
+    });
+    it("존재하지 않는 리플을 삭제 요청 시 에러메세지를 응답한다.", (done) => {
+      const agent = chai.request.agent(app);
+      agent
+        .post("/user/login")
+        .send({ email: "consumer1@gmail.com", password: "1234" })
+        .then(() => {
+          agent
+            .delete("/goods/info/reply")
+            .send({
+              reply_id: 40,
+            })
+            .end((err, res) => {
+              if (err) {
+                done(err);
+                return;
+              }
+
+              expect(res).to.have.status(404);
+              expect(res.body.message).to.equal(
+                "존재하지 않는 reply_id 입니다."
+              );
+
               done();
             });
         });
@@ -371,6 +609,132 @@ describe("Goods Test Case", () => {
               }
               expect(res).to.have.status(404);
               expect(res.body.message).to.equal("글 작성이 실패하였습니다.");
+              done();
+            });
+        });
+    });
+  });
+  describe("PUT/goods/info/review", () => {
+    it("리뷰 업데이트 요청 시 데이터를 수정해야한다.", (done) => {
+      const agent = chai.request.agent(app);
+      agent
+        .post("/user/login")
+        .send({ email: "consumer1@gmail.com", password: "1234" })
+        .then(() => {
+          agent
+            .put("/goods/info/review")
+            .send({
+              review_id: 1,
+              title: "hello",
+              contents: "It is good bro!",
+              star: 3,
+              review_img: "file",
+            })
+            .end((err, res) => {
+              if (err) {
+                done(err);
+                return;
+              }
+              reviews
+                .findOne({
+                  where: {
+                    review_id: 1,
+                    title: "hello",
+                    contents: "It is good bro!",
+                    star: 3,
+                    review_img: "file",
+                  },
+                })
+                .then((data) => {
+                  if (data) {
+                    expect(res).to.have.status(201);
+                    expect(res.body.message).to.equal("리뷰 업데이트 성공.");
+                  }
+                });
+              done();
+            });
+        });
+    });
+    it("내용이 동일하면 에러메세지를 응답해야한다.", (done) => {
+      const agent = chai.request.agent(app);
+      agent
+        .post("/user/login")
+        .send({ email: "consumer1@gmail.com", password: "1234" })
+        .then(() => {
+          agent
+            .put("/goods/info/review")
+            .send({
+              review_id: 1,
+              title: "추천합니다",
+              contents: "이 제품 너무 좋아요",
+              star: 4,
+              review_img:
+                "https://thumbnail6.coupangcdn.com/thumbnails/remote/230x230ex/image/vendor_inventory/6ce8/9f69b6c2f69e6daa7c28688a214be687d877f9239d3aaf30653db023ed6b.jpg",
+            })
+            .end((err, res) => {
+              if (err) {
+                done(err);
+                return;
+              }
+
+              expect(res).to.have.status(404);
+              expect(res.body.message).to.equal("리뷰 내용이 같습니다.");
+
+              done();
+            });
+        });
+    });
+  });
+  describe("DELETE/goods/info/review", () => {
+    it("리플 삭제 요청 시 데이터를 삭제해야한다.", (done) => {
+      const agent = chai.request.agent(app);
+      agent
+        .post("/user/login")
+        .send({ email: "consumer1@gmail.com", password: "1234" })
+        .then(() => {
+          agent
+            .delete("/goods/info/review")
+            .send({
+              review_id: 1,
+            })
+            .end((err, res) => {
+              if (err) {
+                done(err);
+                return;
+              }
+              reviews.findOne({ where: { id: 1 } }).then((data) => {
+                expect(data).to.equal(undefined);
+              });
+
+              expect(res).to.have.status(200);
+              expect(res.body.message).to.equal("리뷰 삭제 성공");
+
+              done();
+            });
+        });
+    });
+    it("존재하지 않는 리뷰를 삭제 요청 시 에러메세지를 응답한다.", (done) => {
+      const agent = chai.request.agent(app);
+      agent
+        .post("/user/login")
+        .send({ email: "consumer1@gmail.com", password: "1234" })
+        .then(() => {
+          agent
+            .delete("/goods/info/review")
+            .send({
+              review_id: 40,
+            })
+            .end((err, res) => {
+              if (err) {
+                done(err);
+                return;
+              }
+
+              expect(res).to.have.status(404);
+              expect(res.body.message).to.equal(
+                "존재하지 않는 review_id 입니다."
+              );
+
               done();
             });
         });
