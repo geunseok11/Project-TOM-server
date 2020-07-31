@@ -245,8 +245,8 @@ describe("Goods Test Case", () => {
                 })
                 .then((data) => {
                   if (data) {
-                    expect(res).to.have.status(201);
-                    expect(res.body.message).to.equal("QA 업데이트 성공.");
+                    expect(res).to.have.status(200);
+                    expect(res.body.message).to.equal("QA 업데이트 성공");
                   }
                 });
               done();
@@ -298,8 +298,8 @@ describe("Goods Test Case", () => {
                 return;
               }
               q_lists.findOne({ where: { id: 2 } }).then((data) => {
-                expect(data.title).to.equal("삭제된 게시물입니다.");
-                expect(data.contents).to.equal("삭제된 게시물입니다.");
+                expect(data.title).to.equal("");
+                expect(data.contents).to.equal("삭제된 게시물 입니다.");
               });
 
               expect(res).to.have.status(200);
@@ -400,7 +400,7 @@ describe("Goods Test Case", () => {
             .put("/goods/info/reply")
             .send({
               text: "몰라몰라몰라",
-              id: 7,
+              reply_id: 7,
             })
             .end((err, res) => {
               if (err) {
@@ -410,14 +410,14 @@ describe("Goods Test Case", () => {
               reply
                 .findOne({
                   where: {
-                    text: "",
                     id: 7,
+                    text: "몰라몰라몰라",
                   },
                 })
                 .then((data) => {
                   if (data) {
-                    expect(res).to.have.status(201);
-                    expect(res.body.message).to.equal("리플 업데이트 성공.");
+                    expect(res).to.have.status(200);
+                    expect(res.body.message).to.equal("리플 업데이트 성공");
                   }
                 });
               done();

@@ -74,7 +74,7 @@ module.exports = {
     reply.destroy({ where: { id: reply_id } }).then((isDelete) => {
       if (isDelete) {
         res.status(200).send({
-          message: "리플삭제 성공",
+          message: "리플 삭제 성공",
         });
       } else {
         res.status(404).send({
