@@ -298,7 +298,8 @@ describe("Goods Test Case", () => {
                 return;
               }
               q_lists.findOne({ where: { id: 2 } }).then((data) => {
-                expect(data).to.equal(undefined);
+                expect(data.title).to.equal("삭제된 게시물입니다.");
+                expect(data.contents).to.equal("삭제된 게시물입니다.");
               });
 
               expect(res).to.have.status(200);
