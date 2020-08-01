@@ -3,7 +3,7 @@ const { users, q_lists, reply } = require("../../models");
 module.exports = {
   get: async (req, res) => {
     const { goods_id } = req.body;
-
+    console.log(goods_id);
     let qLists = await q_lists
       .findAll({
         include: [
