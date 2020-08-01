@@ -17,6 +17,9 @@ module.exports = {
       goods_name: {
         type: Sequelize.STRING,
       },
+      goods_type: {
+        type: Sequelize.STRING,
+      },
       goods_img: {
         type: Sequelize.STRING,
       },
@@ -27,6 +30,12 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       info_img: {
+        type: Sequelize.STRING,
+      },
+      recommend_img: {
+        type: Sequelize.STRING,
+      },
+      flower_language: {
         type: Sequelize.STRING,
       },
       createdAt: {
