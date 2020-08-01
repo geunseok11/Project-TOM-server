@@ -1,8 +1,9 @@
 const { reviews, users } = require("../../models");
-const { review } = require(".");
+
+const url = require("url");
 module.exports = {
   get: (req, res) => {
-    let { goods_id } = req.body;
+    let { goods_id } = url.parse(req.url, true).query;
     reviews
       .findAll({
         include: [{ model: users, attributes: ["username"] }],

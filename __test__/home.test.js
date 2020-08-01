@@ -33,6 +33,7 @@ describe("Home Contorller API", () => {
             "title",
             "img",
             "contents",
+            "filter",
           ]);
           done();
         });

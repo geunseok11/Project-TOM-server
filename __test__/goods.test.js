@@ -121,7 +121,7 @@ describe("Goods Test Case", () => {
       chai
         .request(app)
         .get("/goods/info/qa_lists")
-        .send({ goods_id: 1 })
+        .query({ goods_id: 1 })
         .end((err, res) => {
           if (err) {
             done(err);
@@ -144,7 +144,7 @@ describe("Goods Test Case", () => {
       chai
         .request(app)
         .get("/goods/info/qa_lists")
-        .send({ goods_id: 2 })
+        .query({ goods_id: 2 })
         .end((err, res) => {
           if (err) {
             done(err);
@@ -510,7 +510,7 @@ describe("Goods Test Case", () => {
       chai
         .request(app)
         .get("/goods/info/review")
-        .send({ goods_id: 1 })
+        .query({ goods_id: 1 })
         .end((err, res) => {
           if (err) {
             done(err);
@@ -533,7 +533,7 @@ describe("Goods Test Case", () => {
       chai
         .request(app)
         .get("/goods/info/review")
-        .send({ goods_id: 8 })
+        .query({ goods_id: 8 })
         .end((err, res) => {
           if (err) {
             done(err);

@@ -1,9 +1,10 @@
 const { users, q_lists, reply } = require("../../models");
+const url = require("url");
 
 module.exports = {
   get: async (req, res) => {
-    const { goods_id } = req.body;
-    console.log(goods_id);
+    const { goods_id } = url.parse(req.url, true).query;
+
     let qLists = await q_lists
       .findAll({
         include: [
