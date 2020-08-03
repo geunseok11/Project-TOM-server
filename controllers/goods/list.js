@@ -10,6 +10,7 @@ module.exports = {
         let data = await goods.findAll({
           attributes: [
             ["id", "goods_id"],
+            "goods_type",
             "goods_name",
             "goods_img",
             "goods_price",
@@ -30,11 +31,18 @@ module.exports = {
         if (queryData.max) {
           option[1] = Number(queryData.max);
         }
+        let whereOption = {
+          goods_price: { [Op.between]: [option[0], option[1]] },
+        };
+        if (queryData.filter) {
+          whereOption.goods_type = queryData.filter;
+        }
 
         let data = await goods.findAll({
-          where: { goods_price: { [Op.between]: [option[0], option[1]] } },
+          where: whereOption,
           attributes: [
             ["id", "goods_id"],
+            "goods_type",
             "goods_name",
             "goods_img",
             "goods_price",

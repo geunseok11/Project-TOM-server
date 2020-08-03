@@ -16,7 +16,7 @@ module.exports = {
             title: `${goods.goods_name}에 대한 제목`,
             contents: `${goods.goods_name}에 대한 내용`,
             img: goods.goods_img,
-            filter: "장미",
+            filter: goods.goods_type,
           };
         });
       });

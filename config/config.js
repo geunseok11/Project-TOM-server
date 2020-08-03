@@ -29,4 +29,9 @@ module.exports = {
     tomKey: process.env.SVS,
   },
   TRACKING_KEY: process.env.TRACKING_KEY,
+  googleInfo: {
+    client_id:
+      "375711696008-e62duej7243kbgssf14q55vs0aug25jt.apps.googleusercontent.com",
+    client_secret: process.env.GOOGLE_SECRET,
+  },
 };

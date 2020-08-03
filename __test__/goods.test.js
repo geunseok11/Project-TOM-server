@@ -30,6 +30,7 @@ describe("Goods Test Case", () => {
             expect(data_val).has.all.keys([
               "goods_id",
               "goods_name",
+              "goods_type",
               "goods_img",
               "goods_price",
             ]);
@@ -52,6 +53,7 @@ describe("Goods Test Case", () => {
             expect(data_val).has.all.keys([
               "goods_id",
               "goods_name",
+              "goods_type",
               "goods_img",
               "goods_price",
             ]);
@@ -751,7 +753,7 @@ describe("Goods Test Case", () => {
             .post("/goods/registration")
             .send({
               goods_name: "freesia",
-              goods_img: "file",
+              goods_img: JSON.stringify(["file", "file", "file"]),
               goods_price: 13000,
               stock: 20,
               info_img: "file",
@@ -765,7 +767,7 @@ describe("Goods Test Case", () => {
                 .findOne({
                   where: {
                     goods_name: "freesia",
-                    goods_img: "file",
+
                     goods_price: 13000,
                     stock: 20,
                     info_img: "file",
