@@ -37,6 +37,9 @@ module.exports = {
         if (queryData.filter) {
           whereOption.goods_type = queryData.filter;
         }
+        if (queryData.keyword) {
+          whereOption.goods_name = { [Op.like]: `%${queryData.keyword}%` };
+        }
 
         let data = await goods.findAll({
           where: whereOption,
