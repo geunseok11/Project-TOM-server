@@ -91,8 +91,13 @@ module.exports = {
           contents: contents,
         })
         .then(() => {
-          res.status(201).send({
-            message: "성공적으로 글이 작성 되었습니다.",
+          users.findOne({ where: { id: token } }).then(({ username }) => {
+            res.status(201).send({
+              goods_id: goods_id,
+              username: username,
+              title: title,
+              contents: contents,
+            });
           });
         });
     } else {
