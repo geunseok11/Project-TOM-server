@@ -91,7 +91,7 @@ module.exports = {
           contents: contents,
         })
         .then(() => {
-          user.findOne({ where: { id: toekn } }).then(({ username }) => {
+          users.findOne({ where: { id: token } }).then(({ username }) => {
             res.status(201).send({
               goods_id: goods_id,
               username: username,
