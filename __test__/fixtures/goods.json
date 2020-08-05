@@ -4,44 +4,44 @@
     "goods_name": "푸에고 장미",
     "goods_type": "장미",
     "goods_img": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FvgUkR%2FbtqGgXCEzTj%2FCujBvrkMDRu26cBWYDFnBk%2Fimg.png",
-    "goods_price": 22800,
+    "goods_price": 21800,
     "stock": 90,
     "info_img": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2F4tDoL%2FbtqGjeQZHeb%2FkMD8qku9cbJGufYeXd861K%2Fimg.png",
     "recommended_img": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmeBHJ%2FbtqGisoEKUb%2FZ2Z4mTk3ty4kKHdUb99OPK%2Fimg.png",
-    "flower_language": "당신보다 이쁜 꽃"
+    "flower_language": "정열적인 사랑"
   },
   {
     "user_id": 4,
-    "goods_name": "백합 생화",
-    "goods_type": "백합",
-    "goods_img": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2F6m7bV%2FbtqFXJSl5pq%2F2KDGj4uKcnYmwz6iuBi9gk%2Fimg.png",
-    "goods_price": 15000,
+    "goods_name": "카푸치노 장미",
+    "goods_type": "장미",
+    "goods_img": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FkGxBH%2FbtqGh42Nua8%2FvUUKy6vf2mN6awXuUUFlz1%2Fimg.png",
+    "goods_price": 21800,
     "stock": 80,
-    "info_img": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2F6m7bV%2FbtqFXJSl5pq%2F2KDGj4uKcnYmwz6iuBi9gk%2Fimg.png",
-    "recommended_img": "",
-    "flower_language": "순결"
+    "info_img": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FC8v5M%2FbtqGfNz7DxE%2FfuzGXEE7riQh9qrkKkz6Kk%2Fimg.png",
+    "recommended_img": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmeBHJ%2FbtqGisoEKUb%2FZ2Z4mTk3ty4kKHdUb99OPK%2Fimg.png",
+    "flower_language": "가을을 닮은"
   },
   {
     "user_id": 3,
     "goods_name": "유칼립투스 생화",
     "goods_type": "유칼립투스",
-    "goods_img": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fx7XCH%2FbtqFZ4VmJQT%2FqirOaRtarA7uudxCrGAlN0%2Fimg.png",
+    "goods_img": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FoOXzf%2FbtqGkjYUJxD%2FdUjOiHlqIpkVcq3eke8T81%2Fimg.png",
     "goods_price": 11000,
     "stock": 70,
-    "info_img": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fx7XCH%2FbtqFZ4VmJQT%2FqirOaRtarA7uudxCrGAlN0%2Fimg.png",
+    "info_img": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbPyT7I%2FbtqGe9DB8iW%2FVD0EtkfvxkDCNkRfeUPIN0%2Fimg.png",
     "recommended_img": "",
-    "flower_language": "공룡이름같네?"
+    "flower_language": "코알라먹이"
   },
   {
     "user_id": 4,
-    "goods_name": "해바라기 생화",
-    "goods_type": "해바라기",
-    "goods_img": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fbqwk4t%2FbtqFYZ1K4VH%2Fgd2EQDfRluc74LSzK4gI91%2Fimg.png",
-    "goods_price": 10000,
+    "goods_name": "에그타르트 장미",
+    "goods_type": "장미",
+    "goods_img": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fbt7fRu%2FbtqGfaI9eoa%2FrMKJb6chNz44XsP5RaCWf0%2Fimg.png",
+    "goods_price": 21800,
     "stock": 98,
-    "info_img": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fbqwk4t%2FbtqFYZ1K4VH%2Fgd2EQDfRluc74LSzK4gI91%2Fimg.png",
-    "recommended_img": "",
-    "flower_language": "해를 바라보는 놈"
+    "info_img": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FLWlQH%2FbtqGiTF9Yck%2F8BiK1uzuWtb3nAXwyAiQUk%2Fimg.png",
+    "recommended_img": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmeBHJ%2FbtqGisoEKUb%2FZ2Z4mTk3ty4kKHdUb99OPK%2Fimg.png",
+    "flower_language": "우정"
   },
   {
     "user_id": 3,
@@ -78,35 +78,35 @@
   },
   {
     "user_id": 4,
-    "goods_name": "하젤 장미 생화",
+    "goods_name": "햇살 장미",
     "goods_type": "장미",
-    "goods_img": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FZNhax%2FbtqFZN0BJpf%2FAEI7HVS6M4y4iZki3VGDi0%2Fimg.png",
-    "goods_price": 34900,
+    "goods_img": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FA1rJQ%2FbtqGdP6IbvU%2Flr5aIOIxQySB79BKH9tkJk%2Fimg.png",
+    "goods_price": 21800,
     "stock": 99,
-    "info_img": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FZNhax%2FbtqFZN0BJpf%2FAEI7HVS6M4y4iZki3VGDi0%2Fimg.png",
-    "recommended_img": "",
-    "flower_language": "맥주이름같네"
+    "info_img": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FvomgK%2FbtqGfMOI5uD%2FLK2k7T72BKftjcplrnTj71%2Fimg.png",
+    "recommended_img": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmeBHJ%2FbtqGisoEKUb%2FZ2Z4mTk3ty4kKHdUb99OPK%2Fimg.png",
+    "flower_language": "따듯한 봄 햇살을 닮은 장미"
   },
   {
     "user_id": 3,
-    "goods_name": "수국 생화",
+    "goods_name": "어텀파티 장미",
     "goods_type": "장미",
-    "goods_img": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fbj0j0a%2FbtqFWdmCZaG%2F1RpiCn8SBeeYvUpKfiT6KK%2Fimg.png",
-    "goods_price": 21900,
+    "goods_img": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FzlGWx%2FbtqGiKJu3mx%2FdTdfRhQwmYzPKkrjIZjtm1%2Fimg.png",
+    "goods_price": 21800,
     "stock": 68,
-    "info_img": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fbj0j0a%2FbtqFWdmCZaG%2F1RpiCn8SBeeYvUpKfiT6KK%2Fimg.png",
-    "recommended_img": "",
-    "flower_language": "얜 뭐지"
+    "info_img": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcH9dEg%2FbtqGdRclx5S%2FnhiJ53r0vEyOaqh35Bk9dK%2Fimg.png",
+    "recommended_img": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmeBHJ%2FbtqGisoEKUb%2FZ2Z4mTk3ty4kKHdUb99OPK%2Fimg.png",
+    "flower_language": "첫사랑의 고백"
   },
   {
     "user_id": 3,
-    "goods_name": "소국 생화",
+    "goods_name": "크림하트 장미",
     "goods_type": "장미",
-    "goods_img": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2F8bo5J%2FbtqFXJ51t7s%2FUPkLILrum8KaRvz6SnkSfK%2Fimg.png",
-    "goods_price": 24000,
+    "goods_img": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FrOO7o%2FbtqGe9XHalT%2FCzHul5HRXvITYrbHqK8iyk%2Fimg.png",
+    "goods_price": 21800,
     "stock": 100,
-    "info_img": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2F8bo5J%2FbtqFXJ51t7s%2FUPkLILrum8KaRvz6SnkSfK%2Fimg.png",
-    "recommended_img": "",
-    "flower_language": "작은놈"
+    "info_img": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FllSSu%2FbtqGklvDat2%2FIVDTx5okb7G4vInkfUgEC0%2Fimg.png",
+    "recommended_img": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmeBHJ%2FbtqGisoEKUb%2FZ2Z4mTk3ty4kKHdUb99OPK%2Fimg.png",
+    "flower_language": "향기가 짙은 크리미한 핑크컬러 장미"
   }
 ]
