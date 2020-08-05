@@ -1,13 +1,13 @@
 [
   {
     "user_id": 3,
-    "goods_name": "장미 생화",
+    "goods_name": "푸에고 장미",
     "goods_type": "장미",
-    "goods_img": "http://pngimg.com/uploads/rose/rose_PNG67024.png",
-    "goods_price": 9000,
+    "goods_img": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FvgUkR%2FbtqGgXCEzTj%2FCujBvrkMDRu26cBWYDFnBk%2Fimg.png",
+    "goods_price": 22800,
     "stock": 90,
-    "info_img": "http://pngimg.com/uploads/rose/rose_PNG67024.png",
-    "recommended_img": "",
+    "info_img": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2F4tDoL%2FbtqGjeQZHeb%2FkMD8qku9cbJGufYeXd861K%2Fimg.png",
+    "recommended_img": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmeBHJ%2FbtqGisoEKUb%2FZ2Z4mTk3ty4kKHdUb99OPK%2Fimg.png",
     "flower_language": "당신보다 이쁜 꽃"
   },
   {
