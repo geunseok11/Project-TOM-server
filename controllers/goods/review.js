@@ -34,7 +34,7 @@ module.exports = {
     if (req.files) {
       req.files.forEach((val) => {
         if (val.fieldname === "review_img") {
-          img = `http://localhost:4000/${val.path}`;
+          img = `http://ec2-15-164-219-204.ap-northeast-2.compute.amazonaws.com:4000/${val.path}`;
         }
       });
     }
