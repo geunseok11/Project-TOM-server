@@ -13,7 +13,7 @@ module.exports = {
     try {
       let token = req.cookies.user;
       if (token === "undefined" || !token) {
-        res.status(403).send({ message: "로그인이 필요한 서비스입니다." });
+        res.status(401).send({ message: "로그인이 필요한 서비스입니다." });
       } else {
         let verify = jwt.verify(token, secret.tomKey);
         if (verify) {

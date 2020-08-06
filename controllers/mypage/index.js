@@ -5,4 +5,5 @@ module.exports = {
   tracking: require("./tracking"),
   confirm: require("./confirm"),
   ordercheck: require("./ordercheck"),
+  order: require("./order"),
 };

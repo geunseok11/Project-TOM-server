@@ -6,7 +6,13 @@ module.exports = {
     goods
       .findOne({
         where: { id: goods_id },
-        attributes: ["goods_name", "goods_img", "goods_price", "info_img"],
+        attributes: [
+          "goods_name",
+          "goods_img",
+          "goods_price",
+          "info_img",
+          "flower_language",
+        ],
       })
       .then((goodsInfo) => {
         if (goodsInfo) {

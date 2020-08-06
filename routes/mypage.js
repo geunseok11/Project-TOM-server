@@ -13,5 +13,6 @@ router.get("/sale", jwtVerification, mypageController.sale.get);
 router.get("/onsale", jwtVerification, mypageController.onsale.get);
 router.post("/confirm", jwtVerification, mypageController.confirm.post);
 router.post("/ordercheck", jwtVerification, mypageController.ordercheck.post);
+router.post("/order", jwtVerification, mypageController.order.post);
 
 module.exports = router;

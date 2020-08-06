@@ -2,7 +2,7 @@ const { goods } = require("../../models");
 
 module.exports = {
   post: (req, res) => {
-    const { goods_name, goods_img, goods_price, stock, info_img } = req.body;
+    const { goods_name, goods_price, stock, flower_language } = req.body;
     const token = res.locals.userId;
     let goods_imgArr = [];
     let infoimg;
@@ -10,7 +10,9 @@ module.exports = {
     if (req.files) {
       req.files.forEach((val) => {
         if (val.fieldname === "goods_img") {
-          goods_imgArr.push(`http://ec2-15-164-219-204.ap-northeast-2.compute.amazonaws.com:4000/${val.path}`);
+          goods_imgArr.push(
+            `http://ec2-15-164-219-204.ap-northeast-2.compute.amazonaws.com:4000/${val.path}`
+          );
         } else if (val.fieldname === "info_img") {
           infoimg = `http://ec2-15-164-219-204.ap-northeast-2.compute.amazonaws.com:4000/${val.path}`;
         } else if (val.fieldname === "recommend_img") {
@@ -28,6 +30,7 @@ module.exports = {
         stock: stock,
         info_img: infoimg,
         recommend_img: recommendimg,
+        flower_language: flower_language,
       })
       .then(() => {
         res.status(201).send({
