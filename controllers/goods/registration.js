@@ -10,11 +10,11 @@ module.exports = {
     if (req.files) {
       req.files.forEach((val) => {
         if (val.fieldname === "goods_img") {
-          goods_imgArr.push(`http://localhost:4000/${val.path}`);
+          goods_imgArr.push(`http://ec2-15-164-219-204.ap-northeast-2.compute.amazonaws.com:4000/${val.path}`);
         } else if (val.fieldname === "info_img") {
-          infoimg = `http://localhost:4000/${val.path}`;
+          infoimg = `http://ec2-15-164-219-204.ap-northeast-2.compute.amazonaws.com:4000/${val.path}`;
         } else if (val.fieldname === "recommend_img") {
-          recommendimg = `http://localhost:4000/${val.path}`;
+          recommendimg = `http://ec2-15-164-219-204.ap-northeast-2.compute.amazonaws.com:4000/${val.path}`;
         }
       });
     }
