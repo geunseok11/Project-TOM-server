@@ -25,7 +25,17 @@
 
 ---  
 ### 기술 스택
-![Stack1](https://img.shields.io/badge/Express-Stack-blue)
+![react](https://img.shields.io/badge/React-16.13.1-orange)
+![react-native](https://img.shields.io/badge/ReactNative-16.13.1-orange)
+![redux](https://img.shields.io/badge/Redux-4.0.5-blue)
+![redux-saga](https://img.shields.io/badge/ReduxSaga-1.1.3-orange)<br>
+![styled-components](https://img.shields.io/badge/StyledComponent-5.1.1-green)<br>
+![express](https://img.shields.io/badge/Express-4.17.1-blue)
+![JWT](https://img.shields.io/badge/JWT-8.5.1-blue)
+![mysql](https://img.shields.io/badge/Mysql-2.1.0-blue)
+![sequelize](https://img.shields.io/badge/Sequelize-6.3.3-blue)
+![multer](https://img.shields.io/badge/Multer-1.4.2-blue)
+![passport](https://img.shields.io/badge/Passport-0.4.1-blue)
 
 ---
 ### Clone & Setup
