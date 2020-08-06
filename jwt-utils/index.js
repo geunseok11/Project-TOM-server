@@ -5,7 +5,7 @@ module.exports = {
   tokenGenetator: ({ id, email, username }, { hostname }) => {
     //토큰을 생성하는 코드
     let token = jwt.sign({ id, email, username, hostname }, secret.tomKey, {
-      expiresIn: "10m",
+      expiresIn: "2h",
     });
     return token;
   },
