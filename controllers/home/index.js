@@ -1,21 +1,19 @@
 const { goods } = require("../../models");
+const { Op } = require("sequelize");
 
 module.exports = {
   get: async (req, res) => {
     let recommendationData = await goods
       .findAll({
-        where: {},
+        where: { goods_type: { [Op.or]: ["장미", "나무"] } },
         offset: 0,
-        limit: 5,
+        limit: 3,
         order: [["stock"]],
       })
       .then((data) => {
         return data.map((goods) => {
           return {
-            id: goods.id,
-            title: `${goods.goods_name}에 대한 제목`,
-            contents: `${goods.goods_name}에 대한 내용`,
-            img: goods.goods_img,
+            img: goods.recommend_img,
             filter: goods.goods_type,
           };
         });
