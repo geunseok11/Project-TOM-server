@@ -7,23 +7,18 @@ module.exports = {
       let { email, password } = req.body;
       users.findOne({ where: { email, password } }).then((data) => {
         if (data) {
-          if (data.user_admission === 1) {
-            let token = tokenGenetator(data, req);
-            res.cookie("user", token);
-            res.status(201).send({
-              userInfo: {
-                username: data.username,
-                email: data.email,
-                phone: data.phone,
-                address: data.address,
-                user_type: data.user_type,
-              },
-            });
-          } else {
-            res
-              .status(201)
-              .send({ message: "아직 판매자 회원 승인을 받지 못했습니다." });
-          }
+          let token = tokenGenetator(data, req);
+          res.cookie("user", token);
+          res.status(201).send({
+            userInfo: {
+              username: data.username,
+              email: data.email,
+              phone: data.phone,
+              address: data.address,
+              user_type: data.user_type,
+              user_admission: data.user_admission,
+            },
+          });
         } else {
           res
             .status(404)

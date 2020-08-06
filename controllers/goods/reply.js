@@ -2,12 +2,8 @@ const { reply } = require("../../models");
 module.exports = {
   post: (req, res) => {
     const { text, qa_list_id } = req.body;
-    const token = res.userId;
-    if (!token) {
-      res.status(403).send({
-        message: "로그인이 필요한 서비스입니다.",
-      });
-    }
+    const token = res.locals.userId;
+
     if (text) {
       reply
         .create({
@@ -28,12 +24,7 @@ module.exports = {
   },
   put: (req, res) => {
     const { reply_id, text } = req.body;
-    const token = res.userId;
-    if (!token) {
-      res.status(404).send({
-        message: "로그인이 필요한 서비스입니다.",
-      });
-    }
+
     reply
       .findOne({
         where: {
@@ -65,12 +56,7 @@ module.exports = {
   },
   delete: (req, res) => {
     const { reply_id } = req.body;
-    const token = res.userId;
-    if (!token) {
-      res.status(404).send({
-        message: "로그인이 필요한 서비스입니다.",
-      });
-    }
+
     reply.destroy({ where: { id: reply_id } }).then((isDelete) => {
       if (isDelete) {
         res.status(200).send({

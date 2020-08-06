@@ -3,13 +3,8 @@ const axios = require("axios");
 const { TRACKING_KEY } = require("../../config/config");
 module.exports = {
   post: (req, res) => {
-    const token = res.userId;
     const { order_lists_id, invoice_number, delivery_company_id } = req.body;
-    if (!token) {
-      res.status(403).send({
-        message: "로그인이 필요한 서비스 입니다.",
-      });
-    }
+
     order_lists
       .findOne({
         where: order_lists_id,

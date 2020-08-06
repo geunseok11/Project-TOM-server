@@ -12,12 +12,12 @@ module.exports = {
   jwtVerification: (req, res, next) => {
     try {
       let token = req.cookies.user;
-      if (token === undefined || !token) {
-        next();
+      if (token === "undefined" || !token) {
+        res.status(403).send({ message: "로그인이 필요한 서비스입니다." });
       } else {
         let verify = jwt.verify(token, secret.tomKey);
         if (verify) {
-          res.userId = verify.id;
+          res.locals.userId = verify.id;
           next();
         } else {
           res.status(401).send({ message: "인증이 되지 않았습니다." });

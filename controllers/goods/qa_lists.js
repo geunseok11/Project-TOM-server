@@ -76,12 +76,7 @@ module.exports = {
   },
   post: (req, res) => {
     const { goods_id, title, contents } = req.body;
-    const token = res.userId;
-    if (!token) {
-      res.status(403).send({
-        message: "로그인이 필요한 서비스입니다.",
-      });
-    }
+    const token = res.locals.userId;
     if (title && contents) {
       q_lists
         .create({
@@ -90,13 +85,14 @@ module.exports = {
           title: title,
           contents: contents,
         })
-        .then(() => {
+        .then((q) => {
           users.findOne({ where: { id: token } }).then(({ username }) => {
             res.status(201).send({
               goods_id: goods_id,
               username: username,
               title: title,
               contents: contents,
+              createdAt: q.createdAt,
             });
           });
         });
@@ -108,12 +104,7 @@ module.exports = {
   },
   put: (req, res) => {
     const { qa_list_id, title, contents } = req.body;
-    const token = res.userId;
-    if (!token) {
-      res.status(404).send({
-        message: "로그인이 필요한 서비스입니다.",
-      });
-    }
+
     q_lists
       .findOne({ where: { id: qa_list_id, title: title, contents: contents } })
       .then((qListDatum) => {
@@ -137,12 +128,7 @@ module.exports = {
   },
   delete: (req, res) => {
     const { qa_list_id } = req.body;
-    const token = res.userId;
-    if (!token) {
-      res.status(404).send({
-        message: "로그인이 필요한 서비스입니다.",
-      });
-    }
+
     q_lists
       .update(
         { title: "", contents: "삭제된 게시물 입니다." },

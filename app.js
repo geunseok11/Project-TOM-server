@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
+const path = require("path");
 const goods = require("./routes/goods");
 const mypage = require("./routes/mypage");
 const user = require("./routes/user");
@@ -9,6 +10,7 @@ const home = require("./routes/home");
 const auth = require("./routes/auth");
 const app = express();
 const port = 4000;
+app.use("/images", express.static("images"));
 
 app.use(cookieParser());
 app.use(bodyParser.json());
