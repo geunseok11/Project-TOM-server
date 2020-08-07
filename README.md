@@ -13,7 +13,7 @@
 ![passport](https://img.shields.io/badge/Passport-0.4.1-blue)
 
 # :cat:TOM (T-label Open Market)
----
+
 ### :four_leaf_clover:프로젝트 소개
 - 팀명: :mouse:Jerry
 - 서비스 소개 <br>
@@ -25,8 +25,8 @@
 - 특징
   - 화훼를 전문적으로 다루는 오픈마켓이다.
   - 소비자들은 꽃에 대한 정보를 잘 모르기 때문에 그 부분에 대한 정보를 제공해 줄 수 있다.
- 
 
+---
 ### :four_leaf_clover:팀원 소개
   
 #### 팀장 : 심다슬
