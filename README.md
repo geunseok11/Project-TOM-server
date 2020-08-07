@@ -11,7 +11,7 @@
 ![sequelize](https://img.shields.io/badge/Sequelize-6.3.3-blue)
 ![multer](https://img.shields.io/badge/Multer-1.4.2-blue)
 ![passport](https://img.shields.io/badge/Passport-0.4.1-blue)
-:cat:
+
 # :cat:TOM (T-label Open Market)
 ---
 ### :four_leaf_clover:프로젝트 소개
