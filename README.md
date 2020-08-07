@@ -27,7 +27,8 @@
 ### 기술 스택
 ![react](https://img.shields.io/badge/React-16.13.1-orange)
 ![react-native](https://img.shields.io/badge/ReactNative-16.13.1-orange)
-![redux](https://img.shields.io/badge/Redux-4.0.5-blue)
+![redux](https://img.shields.io/badge/Redux-4.0.5-orange)
+![redux-hooks](https://img.shields.io/badge/ReduxHooks-4.0.5-oragne)
 ![redux-saga](https://img.shields.io/badge/ReduxSaga-1.1.3-orange)<br>
 ![styled-components](https://img.shields.io/badge/StyledComponent-5.1.1-green)<br>
 ![express](https://img.shields.io/badge/Express-4.17.1-blue)
