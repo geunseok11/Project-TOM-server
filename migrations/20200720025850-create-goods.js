@@ -21,7 +21,7 @@ module.exports = {
         type: Sequelize.STRING,
       },
       goods_img: {
-        type: Sequelize.JSON,
+        type: Sequelize.STRING,
       },
       goods_price: {
         type: Sequelize.INTEGER,
