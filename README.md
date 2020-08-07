@@ -43,8 +43,9 @@
   - 배송관련(배송조회, 배송상태, 구매확정) API 구현
   - 상품이미지 샘플 찾기
   - 상품상세페이지 샘플 제작, 배너 제작
+  - API, Wiki, ReadMe 문서 작성
 - Pair Work :
-  - API 문서 작성
+  - API 설계 
   - DB 스키마 설계
   - Server, DB 초기 세팅
 - Tech-Presentation Topic : 
@@ -64,9 +65,20 @@
 - 사진
 - Role : Team Member
 - Works :
-  - a
-  - b
-  - c
+  - 회원가입,이메일 체크, 로그인, 로그아웃, 회원탈퇴 API 구현
+  - 구글 소셜 로그인 구현
+  - 구매내역 API 구현
+  - DB관계, 데이터타입 변경작업
+  - 상품리스트 API 구현
+  - 테스트 케이스 작성(상품리스트, 상세페이지, qna,review 게시판, 마이페이지[구매내역,판매내역])
+  - review 게시판 CRUD API 구현
+  - 구매확정, 판매내역 API 구현
+  - EC2, RED 배포작업
+  - 인증방식 Express-Session에서 JWT로 리팩토링
+- Pair Works :
+  - API 설계
+  - DB 스키마 설계
+  - Server, DB 초기 세팅
 - Tech-Presentation Topic : 
 
 #### 팀원 : 황선주
