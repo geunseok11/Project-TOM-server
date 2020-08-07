@@ -128,6 +128,7 @@ module.exports = {
   },
   delete: (req, res) => {
     const { qa_list_id } = req.body;
+    console.log(qa_list_id);
 
     q_lists
       .update(
@@ -144,6 +145,8 @@ module.exports = {
             message: "존재하지 않는 qa_list_id 입니다.",
           });
         }
-      });
+      }).catch((e)=>{
+      res.status(500).send({message:"서버가 점검중입니다."});
+    })
   },
 };
