@@ -15,48 +15,48 @@
 
 ### 팀원 소개
   
-<h4>팀장 : 심다슬</h4>
+#### 팀장 : 심다슬
 
 - 사진
 - Role : Team Leader
 - Stack : 
 - Works :
-  1.
-  2.
-  3.
+  1. a
+  2. b
+  3. c
 - Tech-Presentation Topic : 
 
-<h4>팀원 : 정근석</h4>
+#### 팀원 : 정근석
 
 - 사진
 - Role : Team Member
 - Stack : 
 - Works :
-  1.
-  2.
-  3.
+  1. a
+  2. b
+  3. c
 - Tech-Presentation Topic : 
 
-<h4>팀원 : 함석호</h4>
+#### 팀원 : 함석호
 
 - 사진
 - Role : Team Member
 - Stack : 
 - Works :
-  1.
-  2.
-  3.
+  1. a
+  2. b
+  3. c
 - Tech-Presentation Topic : 
 
-<h4>팀원 : 황선주</h4>
+#### 팀원 : 황선주
 
 - 사진
 - Role : Team Member
 - Stack : 
 - Works :
-  1.
-  2.
-  3.
+  1. a
+  2. b
+  3. c
 - Tech-Presentation Topic : 
 
 ---
