@@ -1,6 +1,7 @@
 
 ![react](https://img.shields.io/badge/React-16.13.1-orange)
-![react-native](https://img.shields.io/badge/ReactNative-16.13.1-orange)
+![react-navigation](https://img.shields.io/badge/ReactNavigation--orange)
+![react-native](https://img.shields.io/badge/ReactNativeCLI--orange)
 ![redux](https://img.shields.io/badge/Redux-4.0.5-orange)
 ![redux-hooks](https://img.shields.io/badge/ReduxHooks--orange)
 ![redux-saga](https://img.shields.io/badge/ReduxSaga-1.1.3-orange)<br>
@@ -73,7 +74,7 @@
   - 테스트 케이스 작성(상품리스트, 상세페이지, qna,review 게시판, 마이페이지[구매내역,판매내역])
   - review 게시판 CRUD API 구현
   - 구매확정, 판매내역 API 구현
-  - EC2, RED 배포작업
+  - EC2, RDS 배포작업
   - 인증방식 Express-Session에서 JWT로 리팩토링
 - Pair Works :
   - API 설계
