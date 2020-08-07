@@ -12,9 +12,10 @@
 ![multer](https://img.shields.io/badge/Multer-1.4.2-blue)
 ![passport](https://img.shields.io/badge/Passport-0.4.1-blue)
 # TOM (T-label Open Market)
+
 ### 팀원 소개
   
-<h3>팀장 : 심다슬</h3>
+<h4>팀장 : 심다슬</h4>
 
 - 사진
 - Role : Team Leader
@@ -25,7 +26,7 @@
   3.
 - Tech-Presentation Topic : 
 
-<h3>팀원 : 정근석</h3>
+<h4>팀원 : 정근석</h4>
 
 - 사진
 - Role : Team Member
@@ -36,7 +37,7 @@
   3.
 - Tech-Presentation Topic : 
 
-<h3>팀원 : 함석호</h3>
+<h4>팀원 : 함석호</h4>
 
 - 사진
 - Role : Team Member
@@ -47,7 +48,7 @@
   3.
 - Tech-Presentation Topic : 
 
-<h3>팀원 : 황선주</h3>
+<h4>팀원 : 황선주</h4>
 
 - 사진
 - Role : Team Member
