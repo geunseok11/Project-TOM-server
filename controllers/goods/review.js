@@ -8,7 +8,9 @@ module.exports = {
       .findAll({
         include: [{ model: users, attributes: ["username"] }],
         where: { goods_id: goods_id },
-      order: "id desc",
+      order: [
+    ['id', 'desc']
+  ]
       })
       .then((data) => {
         if (data.length !== 0) {
