@@ -1,6 +1,4 @@
 
-
-# TOM (T-label Open Market)
 ![react](https://img.shields.io/badge/React-16.13.1-orange)
 ![react-native](https://img.shields.io/badge/ReactNative-16.13.1-orange)
 ![redux](https://img.shields.io/badge/Redux-4.0.5-orange)
@@ -13,14 +11,52 @@
 ![sequelize](https://img.shields.io/badge/Sequelize-6.3.3-blue)
 ![multer](https://img.shields.io/badge/Multer-1.4.2-blue)
 ![passport](https://img.shields.io/badge/Passport-0.4.1-blue)
+# TOM (T-label Open Market)
 ### 팀원 소개
   
-|이름|포지션|역할|
-|----|----|-------|
-|심다슬|team-leader|back-end|
-|정근석|team-member|front-end|
-|함석호|team-member|back-end|
-|황선주|team-member|front-end|
+팀장 : 심다슬
+-------------
+- 사진
+- Role : Team Leader
+- Stack : 
+- Works :
+  1.
+  2.
+  3.
+- Tech-Presentation Topic : 
+------------
+팀원 : 정근석
+-------------
+- 사진
+- Role : Team Member
+- Stack : 
+- Works :
+  1.
+  2.
+  3.
+- Tech-Presentation Topic : 
+------------
+팀원 : 함석호
+-------------
+- 사진
+- Role : Team Member
+- Stack : 
+- Works :
+  1.
+  2.
+  3.
+- Tech-Presentation Topic : 
+------------
+팀원 : 황선주
+-------------
+- 사진
+- Role : Team Member
+- Stack : 
+- Works :
+  1.
+  2.
+  3.
+- Tech-Presentation Topic : 
 
 ---
 ### 서비스 설명
@@ -35,41 +71,4 @@
 ### 스크린샷 & 데모
 
 
----
-### Clone & Setup
 
-> TOM-clinet, TOM-server 리포지토리를 사용하여 로컬 컴퓨터에 클론하세요.
-
-```shell
-$ git clone https://github.com/codestates/TOM-client
-$ git clone https://github.com/codestates/TOM-server
-```
-
-> 아래와 같이 되어있어야 합니다.
-
-```
-/Project-TOM
-├── /TOM-server
-│   ├── ...        
-│   ├── README.md   
-│   └── gitignore   
-│
-├── /TOM-client
-│   ├── ...         
-│   ├── README.md    
-│   └── gitignore 
-└
-```
-> 각 폴더에서 패키지를 설치 하셔야 합니다.
-
-```shell
-TOM-client $ npm install
-TOM-server $ npm install
-```
-
-> 이제 각 폴더에서 실행시키십시오.
-
-```shell
-TOM-client $ npm start
-TOM-server $ npm start
-```
