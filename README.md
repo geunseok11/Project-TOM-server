@@ -19,54 +19,75 @@
 
 - 사진
 - Role : Team Leader
-- Stack : 
 - Works :
-  1. a
-  2. b
-  3. c
+  - 상품배너, 베스트상품관련 API 구현
+  - 테스트 케이스 작성(회원가입, 로그인, 로그아웃, 회원탈퇴, email중복체크, 상품배너, 베스트상품 API)
+  - 상품상세페이지 API 구현
+  - 회원 정보 수정, 회원정보수정시 재인증 API 구현
+  - 판매중인 상품관련 API 구현
+  - QnA, reply(CRUD) API 구현
+  - 배송관련(배송조회, 배송상태, 구매확정) API 구현
+  - 상품이미지 샘플 찾기
+  - 상품상세페이지 샘플 제작, 배너 제작
+- Pair Work :
+  - API 문서 작성
+  - DB 스키마 설계
+  - Server, DB 초기 세팅
 - Tech-Presentation Topic : 
 
 #### 팀원 : 정근석
 
 - 사진
 - Role : Team Member
-- Stack : 
 - Works :
-  1. a
-  2. b
-  3. c
+  - a
+  - b
+  - c
 - Tech-Presentation Topic : 
 
 #### 팀원 : 함석호
 
 - 사진
 - Role : Team Member
-- Stack : 
 - Works :
-  1. a
-  2. b
-  3. c
+  - a
+  - b
+  - c
 - Tech-Presentation Topic : 
 
 #### 팀원 : 황선주
 
 - 사진
 - Role : Team Member
-- Stack : 
 - Works :
-  1. a
-  2. b
-  3. c
+  - a
+  - b
+  - c
 - Tech-Presentation Topic : 
 
 ---
 ### 서비스 설명
-
+ 
+ 화훼시장에는 수 많은 도소매자들이 있습니다.<br>
+ 도소매 업자들에게 판매채널을 하나더 열어 주고<br>
+ 소비자들도 하나의 꽃집에서 꽃을 주문하는게아니라 여러 꽃집에서<br>
+ 다양한 화훼의 품종을 보며 살 수 있고, 그 화훼에대한 설명도 자세히 알려주는<br>
+ 화훼를 전문적으로 다루는 오픈마켓 서비스입니다.<br>
+ 
 ---   
 ### 와이어 프레임
+<img width="1051" alt="스크린샷 2020-07-17 오후 1 20 58" src="https://user-images.githubusercontent.com/57708971/87748352-9a3e9700-c830-11ea-9fb7-5155a2cf79d9.png">
+<img width="721" alt="스크린샷 2020-07-17 오후 1 21 44" src="https://user-images.githubusercontent.com/57708971/87748353-9e6ab480-c830-11ea-8548-8f524c010a1b.png">
+<img width="1112" alt="스크린샷 2020-07-17 오후 1 21 53" src="https://user-images.githubusercontent.com/57708971/87748358-a0347800-c830-11ea-9c44-9f45654c7258.png">
+<img width="880" alt="스크린샷 2020-07-17 오후 1 21 59" src="https://user-images.githubusercontent.com/57708971/87748364-a1fe3b80-c830-11ea-87db-bcfdb7129c40.png">
+
+---
+### 워크플로우
+![TOM-flowchart](https://user-images.githubusercontent.com/57708971/87740095-4e81f280-c81c-11ea-92b0-b40c79970843.jpg)
 
 ---
 ### 데이터 베이스 스키마  
+![image](https://user-images.githubusercontent.com/49306239/89499319-c5e2ea80-d7fa-11ea-8d03-25775142b5bd.png)
 
 ---  
 ### 스크린샷 & 데모
