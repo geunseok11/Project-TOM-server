@@ -2,6 +2,11 @@ const express = require("express");
 const router = express.Router();
 const { goodsController } = require("../controllers/index");
 const { jwtVerification } = require("../jwt-utils/index");
+const {
+  replyMiddleware,
+  reviewMiddleware,
+  q_listsMiddleware,
+} = require("../middleware/index");
 const multer = require("multer");
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -39,15 +44,41 @@ router.post(
   upload.any(),
   goodsController.registration.post
 );
-router.put("/info/qa_lists", jwtVerification, goodsController.qaLists.put);
-router.put("/info/reply", jwtVerification, goodsController.reply.put);
-router.put("/info/review", jwtVerification, goodsController.review.put);
+router.put(
+  "/info/qa_lists",
+  jwtVerification,
+  q_listsMiddleware,
+  goodsController.qaLists.put
+);
+router.put(
+  "/info/reply",
+  jwtVerification,
+  replyMiddleware,
+  goodsController.reply.put
+);
+router.put(
+  "/info/review",
+  jwtVerification,
+  reviewMiddleware,
+  goodsController.review.put
+);
 router.delete(
   "/info/qa_lists",
   jwtVerification,
+  q_listsMiddleware,
   goodsController.qaLists.delete
 );
-router.delete("/info/reply", jwtVerification, goodsController.reply.delete);
-router.delete("/info/review", jwtVerification, goodsController.review.delete);
+router.delete(
+  "/info/reply",
+  jwtVerification,
+  replyMiddleware,
+  goodsController.reply.delete
+);
+router.delete(
+  "/info/review",
+  jwtVerification,
+  reviewMiddleware,
+  goodsController.review.delete
+);
 
 module.exports = router;

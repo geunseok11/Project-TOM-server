@@ -50,6 +50,7 @@ module.exports = {
               q_lists_id: qLists[i].id,
             },
             attributes: ["text", "createdAt"],
+            order: [["id", "desc"]],
           })
           .then((replyData) => {
             let joinReply = replyData.map((reply) => {
@@ -145,8 +146,9 @@ module.exports = {
             message: "존재하지 않는 qa_list_id 입니다.",
           });
         }
-      }).catch((e)=>{
-      res.status(500).send({message:"서버가 점검중입니다."});
-    })
+      })
+      .catch((e) => {
+        res.status(500).send({ message: "서버가 점검중입니다." });
+      });
   },
 };
