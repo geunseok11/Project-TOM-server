@@ -48,17 +48,18 @@ module.exports = {
         star: star,
         review_img: img,
       })
-      .then(async (review) => {
-        let username = await users.findOne({ where: { id: review.user_id } });
-
-        res.status(201).send({
-          username: username.username,
-          title: review.title,
-          contents: review.contents,
-          star: review.star,
-          review_img: review.img,
-          createdAt: review.createdAt,
-        });
+      .then((review) => {
+        users.findOne({ where: { id: review.user_id } })
+          .then((user)=>{
+            res.status(201).send({
+              username: user.username,
+              title: review.title,
+              contents: review.contents,
+              star: review.star,
+              review_img: review.img,
+              createdAt: review.createdAt,
+            });
+          })
       })
       .catch(() => {
         res.status(404).send({
