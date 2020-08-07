@@ -14,8 +14,7 @@
 # TOM (T-label Open Market)
 ### 팀원 소개
   
-팀장 : 심다슬
--------------
+<h3>팀장 : 심다슬</h3>
 - 사진
 - Role : Team Leader
 - Stack : 
@@ -24,9 +23,8 @@
   2.
   3.
 - Tech-Presentation Topic : 
-------------
-팀원 : 정근석
--------------
+
+<h3>팀원 : 정근석</h3>
 - 사진
 - Role : Team Member
 - Stack : 
@@ -35,9 +33,8 @@
   2.
   3.
 - Tech-Presentation Topic : 
-------------
-팀원 : 함석호
--------------
+
+<h3>팀원 : 함석호</h3>
 - 사진
 - Role : Team Member
 - Stack : 
@@ -46,9 +43,8 @@
   2.
   3.
 - Tech-Presentation Topic : 
-------------
-팀원 : 황선주
--------------
+
+<h3>팀원 : 황선주</h3>
 - 사진
 - Role : Team Member
 - Stack : 
