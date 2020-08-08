@@ -8,15 +8,14 @@ module.exports = {
       .findAll({
         include: [{ model: users, attributes: ["username"] }],
         where: { goods_id: goods_id },
-      order: [
-    ['id', 'desc']
-  ]
+        order: [["id", "desc"]],
       })
       .then((data) => {
         if (data.length !== 0) {
           let arr = [];
           data.forEach((val) => {
             arr.push({
+              id: val.id,
               title: val.title,
               username: val.user.username,
               contents: val.contents,
@@ -52,17 +51,16 @@ module.exports = {
         review_img: img,
       })
       .then((review) => {
-        users.findOne({ where: { id: review.user_id } })
-          .then((user)=>{
-            res.status(201).send({
-              username: user.username,
-              title: review.title,
-              contents: review.contents,
-              star: review.star,
-              review_img: review.img,
-              createdAt: review.createdAt,
-            });
-          })
+        users.findOne({ where: { id: review.user_id } }).then((user) => {
+          res.status(201).send({
+            username: user.username,
+            title: review.title,
+            contents: review.contents,
+            star: review.star,
+            review_img: review.img,
+            createdAt: review.createdAt,
+          });
+        });
       })
       .catch(() => {
         res.status(404).send({
