@@ -29,7 +29,7 @@ module.exports = {
         return data.map((goods) => {
           return {
             id: goods.id,
-            title: `${goods.goods_name}에 대한 제목`,
+            title: goods.goods_name,
             price: goods.goods_price,
             img: goods.goods_img,
           };
