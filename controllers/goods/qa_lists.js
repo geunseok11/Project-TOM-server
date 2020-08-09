@@ -49,7 +49,7 @@ module.exports = {
             where: {
               q_lists_id: qLists[i].id,
             },
-            attributes: ["text", "createdAt"],
+            attributes: ["id", "text", "createdAt"],
             order: [["id", "desc"]],
           })
           .then((replyData) => {
